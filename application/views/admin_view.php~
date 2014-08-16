@@ -1,0 +1,213 @@
+
+<link rel="stylesheet" href="<?=site_url()?>css/user_profile.css" />
+
+<script src="<?=site_url()?>js/message.js"></script>
+<script src="<?=site_url()?>js/admin_template.js"></script>
+<script src="<?=site_url()?>js/admin_events.js"></script>
+<script src="<?=site_url()?>js/admin.js"></script>
+
+<?php  $this->output->enable_profiler(false);?>
+
+<?php echo '<script>var id = "' . $id . '";</script>'; ?>
+<?php echo '<script>var myID = "' . $myID . '";</script>'; ?>
+<?php echo '<script>var myRole = "' . $myRole . '";</script>'; ?>
+<?php echo '<script>var myStatus = "' . $myStatus . '";</script>'; ?>
+<?php echo '<script>var myPrivacy = "' . $myPrivacy . '";</script>'; ?>
+
+<script>
+	$(function(){
+		var admin = new Admin();
+		var events = new AdminEvents();
+	});
+</script>
+
+<div class="container">
+	<div class="admin_roles hide">
+		<h2>Admin Roles</h2>
+
+		<h4>
+			Invite Member
+			<button id="show_hide" data-button="generate_member_key"
+				type="button" class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="generate_member_key" style="display: none;">
+			<div class="container">
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Enter a person's email address to generate
+							a unique registration URL!</h3>
+					</div>
+					<form id="generate" role="form">
+
+						<div>
+							<br> <label for="displayName">Email address: </label> <input
+								type="email" name="mail"> <br> <br> <input type="submit"
+								class="btn btn-primary" name="inviteSubmit" value="Invite!">
+						</div>
+					</form>
+
+					<center id="generated_output"></center>
+
+				</div>
+			</div>
+		</div>
+
+		<h4>
+			Role Change Requests
+			<button id="show_hide" data-button="seniority_requests" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="seniority_requests row" style="display: none;">
+			<div class="seniority_requests_table col-md-6"></div>
+		</div>
+
+		<h4>
+			User List
+			<button id="show_hide" data-button="user_list_hide" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="row user_list_hide" style="display: none;">
+			<div class="user_list col-md-6"></div>
+		</div>
+	</div>
+
+	<div class="senior_roles hide">
+		<h2>Senior Roles</h2>
+
+		<h4>
+			Request Administrator Rights
+			<button id="show_hide" data-button="request_admin" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="request_admin" style="display: none;"></div>
+
+		<h4>
+			Create Group
+			<button id="show_hide" data-button="create_group" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="create_group" style="display: none;">
+			<form id="create_group_submit" class="form-horizontal" role="form">
+
+				<div class="form-group">
+					<label for="name" class="col-sm-2 control-label">Group Name</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="name"
+							placeholder="Group Name">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="description" class="col-sm-2 control-label">Group
+						Description</label>
+					<div class="col-sm-6">
+						<textarea name="description" class="form-control" rows="3"
+							placeholder="Description"></textarea>
+					</div>
+				</div>
+
+				<div class="col-sm-offset-2">
+					<div class="radio">
+						<label> <input type="radio" name="posting" id="one" value="1"
+							checked> Allow posting in this group
+						</label>
+					</div>
+					<div class="radio">
+						<label> <input type="radio" name="posting" id="two" value="0">
+							Posting is not allowed in this group
+						</label>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="col-sm-offset-2">
+					<div class="form-group">
+						<button type="submit" class="btn btn-default">Create</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+
+		<h4>
+			Owned Groups List
+			<button id="show_hide" data-button="owned_group_list" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="owned_group_list row" style="display: none;">
+			<div class="owned_group_list_table col-md-6"></div>
+		</div>
+
+		<h4>
+			Group Membership Requests
+			<button id="show_hide" data-button="membership_requests"
+				type="button" class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="membership_requests row" style="display: none;">
+			<div class="membership_request_table col-md-6"></div>
+		</div>
+
+	</div>
+
+	<div class="junior_roles hide">
+		<h2>Junior Roles</h2>
+
+		<h4>
+			Request Seniority
+			<button id="show_hide" data-button="request_seniority" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="request_seniority" style="display: none;"></div>
+
+
+		<h4>
+			List of Groups
+			<button id="show_hide" data-button="member_group_list" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="member_group_list row" style="display: none;">
+			<div class="member_group_list_table col-md-6"></div>
+		</div>
+
+
+		<h4>
+			Family, Friend, and Collegue Requests
+			<button id="show_hide" data-button="friend_requests" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="friend_requests row" style="display: none;">
+			<div class="friend_requests_table col-md-6"></div>
+		</div>
+
+		<h4>
+			Family List
+			<button id="show_hide" data-button="family_list" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="family_list row" style="display: none;">
+			<div class="family_list_table col-md-6"></div>
+		</div>
+
+		<h4>
+			Friend List
+			<button id="show_hide" data-button="friends_list" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="friends_list row" style="display: none;">
+			<div class="friends_list_table col-md-6"></div>
+		</div>
+
+		<h4>
+			Collegue List
+			<button id="show_hide" data-button="collegues_list" type="button"
+				class="btn btn-info btn-xs">Show</button>
+		</h4>
+		<div class="collegues_list row" style="display: none;">
+			<div class="collegues_list_table col-md-6"></div>
+		</div>
+
+	</div>
+</div>

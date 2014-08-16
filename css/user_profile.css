@@ -1,0 +1,48 @@
+@CHARSET "US-ASCII";
+
+#user_info_block {
+	
+}
+
+#user_friends_block {
+	
+}
+
+#user_posts_block {
+	background-color: #FFFFFF;
+}
+
+#profile_photo
+{
+	background-color: #B20652;
+	padding: 3px;
+    width: 70%;
+	text-align: center;
+}
+
+.user-box {
+	width: 60;
+	height: 60;
+	margin-top: 10;
+}
+
+.friend {
+	background: #B2093E;
+}
+
+.family {
+	background: #19CCFF;
+}
+
+.collegue {
+	background: #B2A612;
+	color: #B2093E;
+}
+
+.friend a, .family a, .collegue a {
+	color: #FFFFFF;
+}
+
+#userName {
+	font-size: 30px;
+}

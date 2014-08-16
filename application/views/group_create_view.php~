@@ -1,0 +1,62 @@
+
+<link rel="stylesheet" href="<?=site_url()?>css/user_profile.css" />
+
+<script src="<?=site_url()?>js/group_create.js"></script>
+
+<?php echo '<script>var myID = "' . $myID . '";</script>'; ?>
+<?php echo '<script>var myRole = "' . $myRole . '";</script>'; ?>
+<?php echo '<script>var myStatus = "' . $myStatus . '";</script>'; ?>
+<?php echo '<script>var myPrivacy = "' . $myPrivacy . '";</script>'; ?>
+
+<script>
+	$(function(){
+		var groupCreate = new GroupCreate();
+	});
+</script>
+
+<div class="col-sm-offset-2">
+	<h3>New Group</h3>
+</div>
+
+<form id="create" class="form-horizontal" role="form">
+
+	<div class="form-group">
+		<label for="name" class="col-sm-2 control-label">Group Name</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="name"
+				placeholder="Group Name">
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="description" class="col-sm-2 control-label">Group
+			Description</label>
+		<div class="col-sm-6">
+			<textarea name="description" class="form-control" rows="3"
+				placeholder="Description"></textarea>
+		</div>
+	</div>
+
+	<div class="col-sm-offset-2">
+		<div class="radio">
+			<label> <input type="radio" name="posting" id="one" value="1" checked>
+				Allow posting in this group
+			</label>
+		</div>
+		<div class="radio">
+			<label> <input type="radio" name="posting" id="two" value="0">
+				Posting is not allowed in this group
+			</label>
+		</div>
+	</div>
+	
+	<br>
+	
+	<div class="col-sm-offset-2">
+		<div class="form-group">
+			<button type="submit" class="btn btn-default">Create</button>
+		</div>
+	</div>
+
+</form>

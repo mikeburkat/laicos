@@ -1,0 +1,28 @@
+@CHARSET "US-ASCII";
+
+.ajax-loader, .ajax-loader-gray {
+    background: url('../img/ajax-loader-white.gif');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.ajax-loader-gray {
+    background: url('../img/ajax-loader-gray.gif');
+}
+
+#error, #success, #info, #warning {
+	position: fixed;
+	bottom: 10px;
+	z-index: 100;
+	width: 900px;
+	display: none;
+}
+
+#profile_logo {
+	padding: 3px;
+}
+
+#post_list {
+	padding: 17px;
+}

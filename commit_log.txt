@@ -1,0 +1,275 @@
+GeStanley Tue Aug 12 18:56:40 2014 fixed two more event things
+Mike Burkat Tue Aug 12 16:30:37 2014 fixed newsfeed bug.
+Mike Burkat Tue Aug 12 00:46:36 2014 Fixed a double declaration of the Message object. Now javascript code compiles properly.
+GeStanley Tue Aug 12 00:11:47 2014 Merge branch 'master' of bitbucket.org:SpaceSteak/comp5531-social-network
+GeStanley Tue Aug 12 00:11:43 2014 views are finished. trying to get js to work.
+Mike Burkat Mon Aug 11 23:36:39 2014 resolved group post firefox issue
+GeStanley Mon Aug 11 22:34:29 2014 working on news feed. needs a group by in the get or sql statement from scratch.
+Mike Burkat Mon Aug 11 22:04:55 2014 new database dump script to back up to let Geoffry try some new things
+Mike Burkat Mon Aug 11 17:27:52 2014 fixed a firefox compatibility bug
+GeStanley Mon Aug 11 10:36:43 2014 inbox is now ordered by most recent to less recent
+GeStanley Mon Aug 11 10:29:49 2014 user names now appear on parent post
+GeStanley Mon Aug 11 10:28:16 2014 now the posts stay
+GeStanley Mon Aug 11 10:16:59 2014 removed alert
+GeStanley Mon Aug 11 10:15:19 2014 private message response now works
+Dmitri Grijalva Sun Aug 10 23:58:33 2014 WIP gifts view
+Dmitri Grijalva Sun Aug 10 22:05:39 2014 A change user role pannel appears when you log in with a senior user. A different one will appear when you login as admin or junior.
+GeStanley Sun Aug 10 15:13:10 2014 can't get crud model to return correct postID from post table
+GeStanley Sun Aug 10 14:23:07 2014 pm creationg now working. wall posts are not
+Dmitri Grijalva Sun Aug 10 00:04:44 2014 WIP adding functions for senior and admin to generate list of lower ranking users and modify their status and role
+Dmitri Grijalva Sat Aug 9 23:16:27 2014 WIP implementation of change user roles in settings.
+Mike Burkat Sat Aug 9 13:39:44 2014 fixed comment deletion
+Mike Burkat Sat Aug 9 13:28:45 2014 Modified the API to work with the new database schema.
+Mike Burkat Sat Aug 9 13:18:50 2014 Merge remote-tracking branch 'origin/master'
+Mike Burkat Sat Aug 9 13:18:30 2014 removed contentID
+GeStanley Fri Aug 8 17:58:20 2014 a little more work
+GeStanley Fri Aug 8 17:46:00 2014 trying to use mike's JS to add comments to a pm. proving a bit harder then i had hoped
+GeStanley Fri Aug 8 14:32:34 2014 changed privateMessage primary key in message_model to messageID
+GeStanley Fri Aug 8 14:27:28 2014 merge fix
+Dmitri Grijalva Fri Aug 8 02:57:59 2014 started implementing gift system
+Dmitri Grijalva Fri Aug 8 00:31:40 2014 added gifts_view
+Mike Burkat Thu Aug 7 18:37:24 2014 added show delete on group walls
+Mike Burkat Thu Aug 7 13:39:06 2014 fixed a deletion bug.
+Mike Burkat Thu Aug 7 13:25:13 2014 Implemented post sharing. Behaviour is that when you press share, the post will be added to your own wall.
+Mike Burkat Thu Aug 7 13:03:48 2014 deletion of posts also deletes the comments now
+Mike Burkat Thu Aug 7 12:35:21 2014 delete works dynamically on user wall. except that if there are comments, they are left dangling.
+Mike Burkat Thu Aug 7 11:51:04 2014 delete button appears correctly
+Mike Burkat Thu Aug 7 11:17:27 2014 added a delete button to post template
+Mike Burkat Thu Aug 7 00:28:39 2014 initial hearted state is now set properly.
+Mike Burkat Thu Aug 7 00:10:41 2014 added post hearting system to group wall posts
+Mike Burkat Thu Aug 7 00:09:09 2014 Implemented a hearting and unhearting system for user wall posts
+Mike Burkat Wed Aug 6 23:29:08 2014 Implemented heart count on each post
+Marc B Wed Aug 6 20:25:03 2014 small fix
+Marc B Wed Aug 6 20:23:43 2014 delete url is operational, no functionality. should also check if user is admin
+Marc B Wed Aug 6 20:20:00 2014 /post/show/xxx now allows user to disable/enable comments on their own posts
+Dmitri Grijalva Wed Aug 6 01:20:55 2014 address update not posting correctly. timestamp added for dateModified
+Dmitri Grijalva Wed Aug 6 00:08:34 2014 tagline properly posting.
+Dmitri Grijalva Tue Aug 5 22:40:55 2014 adding functionality to settings change address / change tagline / change display name
+Mike Burkat Tue Aug 5 19:59:15 2014 modified the remove relationship api call.
+Mike Burkat Tue Aug 5 19:54:25 2014 added confirmation messages for accept and decline to indicate if it was succesful or failed.
+SpaceSteak Tue Aug 5 19:43:54 2014 Merge branch 'master' of https://bitbucket.org/SpaceSteak/comp5531-social-network
+SpaceSteak Tue Aug 5 19:43:41 2014 more stuff to disable comments
+Mike Burkat Tue Aug 5 19:43:09 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Tue Aug 5 19:43:00 2014 Implemented friend accept and decline API calls.
+SpaceSteak Tue Aug 5 19:37:08 2014 **REFACTORED BASE_URL() TO SITE_URL() SO WE CAN UPLOAD TO CONU** This might have broken things. Tested a bit. PLEASE TELL ME IF YOU FIND NEW BUGS.
+SpaceSteak Tue Aug 5 19:34:19 2014 starting implementing post delete and allowing/disabling comments
+Mike Burkat Tue Aug 5 19:12:48 2014 added api calls to accept and decline relationship, not implemented yet
+Mike Burkat Tue Aug 5 19:08:34 2014 request is hidden when button is pressed.
+Mike Burkat Tue Aug 5 18:57:39 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Tue Aug 5 18:57:31 2014 accept and decline functions are now being called properly, next step is to implement them.
+SpaceSteak Tue Aug 5 18:51:06 2014 Merge branch 'master' of https://bitbucket.org/SpaceSteak/comp5531-social-network
+SpaceSteak Tue Aug 5 18:50:51 2014 added a link to show an individual post in the javascript. will add a change setting to this page if person is owner
+Mike Burkat Tue Aug 5 18:41:38 2014 implemented a list of requests on the main page. Added buttons to accept or decline, trying to get button to work.
+Mike Burkat Tue Aug 5 16:55:45 2014 removed the query print at the api call, added the friend request script.
+Mike Burkat Tue Aug 5 16:53:41 2014 started implementing friend requests that must be accepted or declined by the recepient user. Added an API call, modified the get CRUD model, added a request area to the main page, added a friend request javascript.
+Mike Burkat Mon Aug 4 19:31:40 2014 testing some tag stuff
+Mike Burkat Mon Aug 4 17:09:38 2014 fixed a crud_model extension to private messages
+Marc B Sat Aug 2 17:02:46 2014 custom 404 page
+GeStanley Sat Aug 2 13:40:09 2014 pm message creation is working. next adding comments/replies
+GeStanley Sat Aug 2 13:16:58 2014 working on privateMessage table insertion
+GeStanley Sat Aug 2 12:48:18 2014 created an array of recipients
+GeStanley Sat Aug 2 12:30:13 2014 removed function from message model
+GeStanley Sat Aug 2 12:27:38 2014 added post and content insert. need to work on user participation part
+SpaceSteak Fri Aug 1 06:07:10 2014 made user profiles into 2 columns
+Mike Burkat Thu Jul 31 20:18:57 2014 changed user profile look, added a div for user name and some css formatting
+Marc B Thu Jul 31 18:54:51 2014 reversed post history
+GeStanley Thu Jul 31 13:32:51 2014 added friend selection to pm. created form control for pm.
+Mike Burkat Tue Jul 29 12:16:04 2014 add post button is added and removed dynamically depending on user relationship or group membership.
+Mike Burkat Tue Jul 29 11:53:53 2014 merging
+Mike Burkat Tue Jul 29 11:53:20 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Tue Jul 29 11:53:10 2014 Implemented posting on walls, and fixed a bug with text posts. Btw if you go to a random group you might not be able to post, you need to be a member to see the add post button.
+Thomas Tige Sun Jul 27 14:08:08 2014 Changed formatting, added controller to separate html view from php (does not work yet though)
+Thomas Tige Sun Jul 27 13:55:05 2014 changed hard url to avoid further issues
+Thomas Tige Sun Jul 27 13:29:05 2014 Made previous commit a bit prettier.
+Thomas Tige Sun Jul 27 13:24:20 2014 Fixed invite generator. Should only be missing formatting.
+SpaceSteak Sun Jul 27 13:15:52 2014 created a gmail account and added smtp config should now be able to send mail like: $this->load->library('email');
+Thomas Tige Sun Jul 27 12:19:02 2014 Implemented the secret URL thing.
+SpaceSteak Sun Jul 27 11:54:02 2014 temp fixed no posts in friend or groups causing sql error added default posts to show in constants.php
+SpaceSteak Sat Jul 26 19:55:24 2014 Merge branch 'master' of https://bitbucket.org/SpaceSteak/comp5531-social-network
+SpaceSteak Sat Jul 26 19:54:54 2014 * compose/post works properly for file upload * todo: images need to be resized automatically in post template
+Mike Burkat Sat Jul 26 17:49:04 2014 Started implementing the API call to delete group, but the delete tree is way too large, to do it fast. will finish this next time.
+Mike Burkat Sat Jul 26 16:57:50 2014 Leave group works. Implemented an API call to remove_membership. Buttons are changed dynamically.
+Mike Burkat Sat Jul 26 16:50:06 2014 Removed a bug which allowed self friending.
+Mike Burkat Sat Jul 26 16:45:04 2014 Joining a group now works. Implemented an API add_membership call.
+Mike Burkat Sat Jul 26 16:33:18 2014 copied user_event into group_event. will start implementing some events for the group page.
+Mike Burkat Sat Jul 26 16:27:50 2014 started implementing join, leave and delete group buttons.
+SpaceSteak Sat Jul 26 16:22:13 2014 fixed wall single posts temp css fix for profile browser
+Mike Burkat Sat Jul 26 16:02:11 2014 Made the database accept unfriending. and made the user page dymanic as to friend family collegue status
+Mike Burkat Sat Jul 26 15:38:42 2014 Added the buttons to remove from friends, family and collegue. next I'll get them to call the db on their click.
+Marc B Sat Jul 26 15:26:22 2014 post history implementation still has problems but it exists
+Mike Burkat Sat Jul 26 14:58:38 2014 clicking edit settings button on user profile redirects to proper page now
+SpaceSteak Sat Jul 26 13:43:11 2014 started post history need to iterate through threads
+SpaceSteak Sat Jul 26 13:28:05 2014 *fixed welcome to pickup last post from a friend, and last post from your groups *added images to Comment model (which should be called Post model)
+Mike Burkat Sat Jul 26 13:17:53 2014 fixed the group browser redirect bug.
+Mike Burkat Sat Jul 26 13:13:24 2014 An issue with the new image system is that if we upload an image to our local dev environment then it needs to be sent to github, or else it will not be able to show the images on the website, since they are missing from the folder.
+Mike Burkat Sat Jul 26 13:10:55 2014 Deleted some useless code that used to do resizing on images.
+Mike Burkat Sat Jul 26 13:07:06 2014 Images are saved to file instead of database.
+Mike Burkat Sat Jul 26 11:37:43 2014 removed that winrar archive
+Mike Burkat Mon Jul 21 13:06:44 2014 Friends, family and collegues are now boxes of different colors.
+Thomas Tige Sat Jul 19 15:21:42 2014 Implemented working queries for invites and secret URLs. Ugly code, but functional.
+Thomas Tige Sat Jul 19 13:31:08 2014 see previous commit for comments, this one is just a quick fix for a label
+Thomas Tige Sat Jul 19 13:29:23 2014 *WORK IN PROGRESS (should be obvious just by looking at the entirety of it) -Added an "invite" button in the "Identity" dropdown -Clicking on it brings to the "invite" page, which generates a unique URL for the new user -Added an "invite" table to the db
+Thomas Tige Sat Jul 19 12:17:16 2014 Fixed loading of CSS when entering wrong information/no information at all
+Dmitri Grijalva Fri Jul 18 01:45:49 2014 fixed evil $projectName in /settings/
+Dmitri Grijalva Fri Jul 18 01:38:27 2014 session expiration set to 0, login not required every time
+Dmitri Grijalva Fri Jul 18 01:07:34 2014 implemented privacy change in settings
+Dmitri Grijalva Fri Jul 18 00:37:57 2014 duplicate email verification implemented.
+Mike Burkat Thu Jul 17 20:23:50 2014 post user names and comment user names are clickable
+Marc B Thu Jul 17 19:27:22 2014 a bunch of small fixes
+Marc B Thu Jul 17 19:05:22 2014 fixed extraneous custom fall call
+Mike Burkat Thu Jul 17 18:29:17 2014 reversed order of posts
+Mike Burkat Thu Jul 17 13:33:24 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Thu Jul 17 13:33:13 2014 Video posting system works great. you need to submit the whole youtube address. address validation will come later.
+Dmitri Grijalva Thu Jul 17 00:06:57 2014 registration sends public and private status into database. started implementation of duplicate email verifcation
+Mike Burkat Wed Jul 16 14:31:16 2014 commenting system fixed.
+Mike Burkat Wed Jul 16 14:12:23 2014 dropped resolution pretty low, now pics are fully drawn but look crappy. not sure how to get this to be high rez without clipping issues.
+Mike Burkat Wed Jul 16 14:04:47 2014 Image posting system works but there is some clipping on diplay
+Mike Burkat Wed Jul 16 12:33:28 2014 trying to display image through canvas, to prevent clipping
+Mike Burkat Wed Jul 16 02:45:23 2014 image submission and display works for posts.
+SpaceSteak Sun Jul 13 16:38:37 2014 fixed css in create post view to match geoff's sexy css from pm menu
+SpaceSteak Sun Jul 13 16:22:35 2014 compose/create now fully works as intended. for new users it might be simpler to have a "one-stop" shop for posting now we just have to change the way posts are displayed (add image or embed video)
+SpaceSteak Sun Jul 13 12:49:52 2014 image upload is working from /post/create using mike's crud model for the insert (works nicely) sends images to /laicos/uploads/filename.jpg instead of storing in the database
+SpaceSteak Sun Jul 13 11:18:15 2014 basic frontend for posting with photo or video to your own wall, a friend's wall or a group's wall is functional. backend not yet implemented
+SpaceSteak Sun Jul 13 10:35:05 2014 added model functions for users and groups to use internally in CI (get,set settings, etc)
+GeStanley Sat Jul 12 20:12:42 2014 removed resize option
+GeStanley Sat Jul 12 20:07:36 2014 Merge branch 'master' of bitbucket.org:SpaceSteak/comp5531-social-network
+GeStanley Sat Jul 12 20:07:32 2014 used 'textarea' with the compose pm view
+SpaceSteak Sat Jul 12 19:58:27 2014 fixed more links...
+GeStanley Sat Jul 12 19:41:46 2014 fixing more links
+GeStanley Sat Jul 12 19:40:20 2014 fixing links
+GeStanley Sat Jul 12 19:36:05 2014 Merge branch 'master' of bitbucket.org:SpaceSteak/comp5531-social-network
+GeStanley Sat Jul 12 19:34:28 2014 changed pm view file structure and implement basic form for message creation
+SpaceSteak Sat Jul 12 18:53:30 2014 refactored Privatemessages to Message to clean up urls and standardize filenames
+SpaceSteak Sat Jul 12 18:39:42 2014 refactored User model to be in User_model (might cause some bugs if i didn't catch everything in the refactoring) added broadcast to user profiles
+SpaceSteak Sat Jul 12 12:02:17 2014 some css tests
+Mike Burkat Mon Jul 7 22:46:10 2014 fixed a bug in the appearing responce system on friend/family/collegue addition.
+Mike Burkat Mon Jul 7 19:16:38 2014 comment system working nicely
+Mike Burkat Mon Jul 7 18:34:17 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Mon Jul 7 18:34:05 2014 commenting system almost done
+Marc B Mon Jul 7 17:25:27 2014 -Geoff: added userID to private message, but nothing shows up -reorg'd menu
+Mike Burkat Mon Jul 7 16:49:18 2014 Added missing content_model
+Mike Burkat Mon Jul 7 15:27:04 2014 fixed a wrong join reference for post system.
+Mike Burkat Mon Jul 7 15:25:08 2014 Dynamic post submit and wall update is working.
+Mike Burkat Mon Jul 7 14:31:10 2014 Clicking post generates a form, and submit and cancel buttons. Cancel works dynamically.
+Mike Burkat Mon Jul 7 13:59:49 2014 Started implementing posting to a wall. added a post button and events.
+Mike Burkat Mon Jul 7 13:42:06 2014 posts are using userWall now. I was just getting all of them previously.
+Mike Burkat Mon Jul 7 13:26:01 2014 changed the wall to use text instead of description
+Mike Burkat Mon Jul 7 13:24:02 2014 Implemented a wall on the user profile page.
+Mike Burkat Sun Jul 6 22:54:46 2014 messaging system report success and failure on add as friend, family, or collegues.
+Mike Burkat Sun Jul 6 22:29:11 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Sun Jul 6 22:29:02 2014 Implemented messaging system. Created a common.css linken in the header. Added necessary messaging div to the footer.
+GeStanley Sun Jul 6 21:56:48 2014 Merge branch 'master' of bitbucket.org:SpaceSteak/comp5531-social-network
+GeStanley Sun Jul 6 21:56:42 2014 added link to pm menu from navbar. still missing the ability to retrive user id from session info. menu also links to user profiles and to message thread.
+Mike Burkat Sun Jul 6 21:07:04 2014 removed the print_r(last_query) in crud_model i had forgot it when debugging.
+GeStanley Sun Jul 6 20:59:41 2014 private message changes
+Mike Burkat Sun Jul 6 20:26:42 2014 implementd ordering system for users. only public users can be searched.
+Mike Burkat Sun Jul 6 19:35:18 2014 Added a check to prevent adding multiple times the same relationship into the relationship table
+Marc B Sun Jul 6 19:29:47 2014 pm sys
+Mike Burkat Sun Jul 6 19:22:32 2014 added button on user profile to add_as_family and add_as_collegues
+Mike Burkat Sun Jul 6 19:11:25 2014 added an add_as_friend button to other users.
+Mike Burkat Sun Jul 6 16:51:30 2014 Added friend browser core files.
+Marc B Sun Jul 6 15:28:20 2014 Merge branches 'master' and 'master' of https://bitbucket.org/SpaceSteak/comp5531-social-network
+Marc B Sun Jul 6 15:28:09 2014 geoff's changes for mike app
+Mike Burkat Sun Jul 6 15:00:44 2014 fixed the login. it was not using the proper username
+SpaceSteak Sun Jul 6 10:33:51 2014 *User model -> get_user_setting($userID,$setting) returns the user's value for that setting *User model -> set_user_setting($userID,$setting,$value sets the userID's setting with that value in DB. Use these any time you have atomic things to do to user
+Marc B Sun Jul 6 09:08:29 2014 fixed menu enabled auth_ctrl on user model began set_user_setting($userID,$setting,$value)
+Dmitri Grijalva Sun Jul 6 00:54:48 2014 timestamp for dateCreated implemented in registration_model
+Dmitri Grijalva Sat Jul 5 19:10:35 2014 registration updated with all info to be instered into "user"
+Marc B Sat Jul 5 17:02:25 2014 Merge commit '061dc34609de931dec67e7879b380ad4af8d74c9'
+Marc B Sat Jul 5 17:02:10 2014 testing some stuff out to eventually have a cool way to post
+Dmitri Grijalva Sat Jul 5 16:49:16 2014 change password functionality implemented
+SpaceSteak Fri Jul 4 21:37:08 2014 stream controller and view
+SpaceSteak Fri Jul 4 20:51:23 2014 -added menu functionality -added some comments and examples how 2 use user-session data -there might be use cases where we can't access user data, but haven't implemented yet
+Mike Burkat Fri Jul 4 20:03:42 2014 added the group creation. User can access it through their profiles, only if they are admin or senior.
+Marc B Fri Jul 4 17:35:57 2014 added a redirect to browser user's own profile page for now. eventually we can make a custom controller
+Mike Burkat Fri Jul 4 16:30:32 2014 added a hidden class to hide the tag ids
+Mike Burkat Fri Jul 4 16:26:36 2014 finished implementing a cross correlation search through the /group/browser it works great.
+Mike Burkat Fri Jul 4 14:38:19 2014 fixed api/get_group_members(), was getting an error due to table ambiguity pertaining to role.
+Mike Burkat Fri Jul 4 14:13:49 2014 added status, role, and privacy to the session data. We will still validate later, but this allows for dynamic layout of buttons for actions like edit, add friend, create group. Changed the menu to redirect to the proper profile page.
+Mike Burkat Fri Jul 4 13:26:55 2014 added edit link for profile for the signed in user.
+Mike Burkat Fri Jul 4 12:59:23 2014 changed addresses from relative to absolute in user.js. I'm using url parsing to get the base and path.
+Mike Burkat Fri Jul 4 12:04:15 2014 .htaccess still didn't work I had to change it to a different one. now it works for me. Renamed the old one to .htaccess3 in case that doesn't work for someone you can easily revert
+Mike Burkat Wed Jul 2 12:14:01 2014 Implemented a cool search feature. try it at: http://localhost/comp5531/index.php/group/browser Click on the tags to refine to groups you see. It's not perfect yet but it's getting there.
+Mike Burkat Wed Jul 2 10:05:18 2014 modified the group_browser look
+Mike Burkat Wed Jul 2 09:58:13 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Wed Jul 2 09:58:03 2014 added insert data scripts to load the tags, group, and has_tag tables
+SpaceSteak Tue Jul 1 22:20:28 2014 welcome page now utilize's Geoff's comment model (should be refactored to Post or Thread model?) for a pre-determined amount of posts. need to change this to get a list of Threads to iterate through
+Dmitri Grijalva Tue Jul 1 19:20:11 2014 Working on Change Password functionality in Identity > Settings. Not fully implemented yet.
+Mike Burkat Tue Jul 1 18:28:51 2014 changed the behaviour to toggle insted for now.
+Mike Burkat Tue Jul 1 18:28:03 2014 Clicking on a tag in the group browser hides it.
+Mike Burkat Tue Jul 1 18:16:50 2014 **fixed the browser. waisted 45 min... for one line of code.
+Marc B Tue Jul 1 17:38:14 2014 fixed some bugs added menu to group browser fixed urls in menu template, and added menu template to browser
+Marc B Tue Jul 1 17:31:47 2014 Merge branch 'master' of https://bitbucket.org/SpaceSteak/comp5531-social-network
+Marc B Tue Jul 1 17:31:05 2014 *fixed group_browse_view to group_view *added menu to browser
+Mike Burkat Tue Jul 1 17:03:28 2014 Started implementing events on the group browser to filter groups
+Mike Burkat Tue Jul 1 15:49:16 2014 css for the browser
+Mike Burkat Tue Jul 1 15:48:47 2014 Added a group browser at http://localhost/comp5531/index.php/group/browser
+GeStanley Tue Jul 1 15:41:10 2014 Merge branch 'master' of bitbucket.org:SpaceSteak/comp5531-social-network
+GeStanley Tue Jul 1 15:41:01 2014 created code to display all private message threads a user is participating in as well as code to generate an invididual private thread. still needs links between the different components.
+Mike Burkat Tue Jul 1 14:53:41 2014 Added a tag table and a has_tag relationship. Tags for a group are displayed in the group profile, from the new structure
+SpaceSteak Tue Jul 1 13:52:54 2014 Merge branch 'master' of https://bitbucket.org/SpaceSteak/comp5531-social-network
+SpaceSteak Tue Jul 1 13:52:09 2014 *fixed the login 404 bug, had forgotten some() my bad *registration now works at /registration/
+Mike Burkat Tue Jul 1 13:20:41 2014 fixed href for memebers in a group.
+Mike Burkat Tue Jul 1 13:18:19 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Tue Jul 1 13:18:07 2014 Set up the Group page: it shows group info, owner, and members. Usage: http://localhost/comp5531/index.php/group/show/1
+SpaceSteak Tue Jul 1 12:53:39 2014 login now redirects to attempted page
+Mike Burkat Tue Jul 1 12:15:30 2014 Upgraded jquery 1.10.2 to 1.11.1. changed the bootstrap source to use the bootstrap.min. Changed the Database config pconnect to false. this will close connections automatically. CI was leaving them open, leading to slowdown of our database. This should improve speed. Lastly clicking on a friend in a profile now leads to that friend's profile.
+Mike Burkat Tue Jul 1 11:50:41 2014 changed user back from Auth_Controller to CI_Controller. Will change back later.
+Mike Burkat Tue Jul 1 11:38:25 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Tue Jul 1 11:38:12 2014 starting to change the user name to be an href to it's profile page. changed the header to use the jquery file in our project instead of downloading it from google each time
+SpaceSteak Tue Jul 1 09:54:01 2014 1. Fixed page logic / redirects to login if logged out / redirects to main/welcome if logged in
+Mike Burkat Mon Jun 30 23:09:52 2014 implemented join on the friends and groups. The profile now displays friend names and group names
+Mike Burkat Mon Jun 30 22:42:48 2014 added join to the crud_model get function.
+Marc B Mon Jun 30 19:26:39 2014 **Login System** -Any Class that you want to hide behind protection can now extend Auth_Controller instead of CI_Controller. Basically all our pages should extend Auth_Controller except for something publicly accessible -Removed registration from the login page. The requirements say that we need to have an invite-system. We can discuss how to implement. Maybe unique URLs or something? -You can check if a user is logged in with is_logged_in().
+Mike Burkat Mon Jun 30 17:32:39 2014 Merge branch 'master' of https://Mike Burkat@bitbucket.org/SpaceSteak/comp5531-social-network.git
+Mike Burkat Mon Jun 30 17:27:26 2014 Added the groups owned and groups member to the user profile. Added a user_profile.css, and some loader.gif to fill space while waiting
+Marc B Mon Jun 30 17:17:54 2014 Merge commit 'c3bf64a075cd6c6673917db731e167e0fb6edf95'
+Marc B Mon Jun 30 17:17:26 2014 Logging check does not work for some reason. Still outstanding. Session array does have data though, so it's strange. (/main/debug/)
+Mike Burkat Mon Jun 30 16:35:34 2014 The user profile now shows a list of friends family and friends.
+Mike Burkat Mon Jun 30 15:52:20 2014 removed user_wall
+Mike Burkat Mon Jun 30 14:13:11 2014 improved wall look by making the posts a list.
+Mike Burkat Mon Jun 30 13:33:49 2014 Implemented a rudimentary user wall. Usage is: http://localhost/comp5531/index.php/user_wall/show/7
+Mike Burkat Mon Jun 30 13:22:18 2014 started implementing a user wall, added the requied files to the structure
+Dmitri Grijalva Sun Jun 29 22:55:09 2014 implemented registration below laicos login. firstName, email and password working. other fields still to add. reformatted laicos login. added registration_controller and registration_model
+Dmitri Grijalva Sat Jun 28 15:58:07 2014 placeholder added, header and footer
+GeStanley Sat Jun 28 15:50:54 2014 Merge branch 'master' of bitbucket.org:SpaceSteak/comp5531-social-network
+GeStanley Sat Jun 28 15:50:45 2014 created a view for a formated thread
+Thomas Tige Sat Jun 28 15:50:25 2014 integrated new login screen. It works!
+Thomas Tige Sat Jun 28 15:03:55 2014 added login php files For now, access with 127.0.0.1/login Working on cleaning it up
+Thomas Tige Sat Jun 28 15:02:20 2014 resolving Geoff's test
+GeStanley Sat Jun 28 14:52:27 2014 test commit
+GeStanley Sat Jun 28 13:54:45 2014 created showing hot to populate a particular thread.
+Mike Burkat Fri Jun 27 17:28:22 2014 disabled the profiler
+Mike Burkat Fri Jun 27 16:33:42 2014 you can get specific user profile by url: /index.php/user/show/"userId" example /index.php/user/show/11
+Mike Burkat Fri Jun 27 15:00:51 2014 added a template and user javascript. also a user_model, user_view and user controller. started implementing an api which runs our queries. And return results as JSON formatted data.
+Mike Burkat Fri Jun 27 13:07:05 2014 Added a CRUD model, to make this a lot faster to create, get, update, and delete
+Mike Burkat Fri Jun 27 13:02:05 2014 Removed adminer_view it's not doing anything. Moved assignment 1 to it's own folder.
+Mike Burkat Fri Jun 27 12:53:15 2014 I moved a1.sql and adminer.php out of the controllers.
+GeStanley Thu Jun 26 18:58:52 2014 added a left join with the user info
+GeStanley Thu Jun 26 18:28:28 2014 added sample code that extracts all parent posts as well as sample code that extracts all child posts. Will need to combine both. You can see the result at /laicos/index.php/main/parentposts & /childposts
+SpaceSteak Wed Jun 25 20:35:20 2014 -added a Friends controller -using a constructor to have class-wide variables. sharing viarables between classes will be very important, so this might be work understanding
+GeStanley Tue Jun 24 16:29:18 2014 changed the structure a little bit.
+GeStanley Tue Jun 24 16:12:05 2014 example loging screen. just push the button to move on to content.
+Thomas Tige Tue Jun 24 14:36:14 2014 Merge branch 'master' of https://bitbucket.org/SpaceSteak/comp5531-social-network
+Thomas Tige Tue Jun 24 14:35:44 2014 Implemented rough login screen Various changes: -using local temporary database (changed it in application/config/database.php, simply commented out the original one) -changed the default controller to 'login' (login.php) in application/config/routes.php. The URL now redirects to the login screen instead of the welcome screen. Logging in will then send to the main page. -added the session library to application/config/autoload.php -added an encryption key to application/config/config.php because the session library needs it -added User in the Models -added a login controller and a view -added verifylogin controller
+GeStanley Tue Jun 24 12:58:20 2014 forgot one
+GeStanley Tue Jun 24 12:57:43 2014 added comment button
+GeStanley Tue Jun 24 12:45:58 2014 some message reponse trials
+GeStanley Tue Jun 24 12:38:52 2014 playing around with post look
+GeStanley Tue Jun 24 12:11:56 2014 fixed content padding from navbar
+SpaceSteak Tue Jun 10 20:40:39 2014 started adding menu items
+Thomas Tige Wed Jun 4 17:40:04 2014 Implemented drop-down menu to select the query to be displayed in the table.
+Thomas Tige Tue Jun 3 20:14:50 2014 no message
+SpaceSteak Sun Jun 1 19:36:46 2014 1. The page "assignment1" dynamically generates a table based what the sql query returns. Very nice work, Geoff. :) * The table's content is generated from getUsers in the controller, assignment1.php, which sends its data to the view * The view is driven by assignment1_view.php which loads a few side templates which we will use for the other assignments. Inline image 1 2. The SQL query is in getUsers() and is a simple unsecure pure sql. Thomas, this is where you can basically plop your queries to have them printed in assignment1. If you want to get fancy, you could setup a button on assignment1 that allows you to select which query to run instead of manually changing the SQL queries.
+GeStanley Sun Jun 1 14:55:07 2014 fixed the bootstrap referencing
+GeStanley Sun Jun 1 14:50:37 2014 added a table php class to populate table from sql query. Bootstrap referencing not working. I'm not sure I understand the dir setup. Links to bootstrap files need to be tweaked in the header file.
+Marc B Mon May 26 19:04:04 2014 added $data to subviews so they get the array too fixed js so drop down menu works
+Marc B Sat May 24 15:53:36 2014 added admirer.php to simplify db management created assignment1.php view and controller to iterate through users
+Mike Burkat Sun May 18 21:52:40 2014 changed the database location, added db name, database is autoloaded now
+Mike Burkat Sun May 18 21:50:01 2014 added schema for the database
+Marc B Thu May 15 20:58:09 2014 broke some stuff trying to separate main file into separate smaller files - doh
+Marc B Thu May 15 20:31:00 2014 Merge branch 'master' of https://bitbucket.org/SpaceSteak/comp5531-social-network
+Marc B Thu May 15 20:25:37 2014 a few more fixes
+Marc B Thu May 15 20:25:37 2014 a few more fixes
+Marc B Thu May 15 20:04:12 2014 /application/controllers/main.php MAIN FILE TO DRIVE WEBSITE /application/controllers/main_view.php MAIN FILE TO SEE WEBSITE basic php framework setup using code igniter & bootstrap as a base template.
+SpaceSteak Wed May 14 17:16:51 2014 initial codeigniter load

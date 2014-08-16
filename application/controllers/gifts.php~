@@ -1,0 +1,37 @@
+<?php
+
+class Gifts extends CI_Controller {
+
+	var $data = null;
+
+	public function __construct()
+	{
+		parent::__construct();
+		  //global $site_name;
+	  	$this->load->database();
+	    $this->load->library('form_validation');
+	    $this->load->model('gifts_model');
+	}
+	
+	
+	public function send_gift(){
+	 
+	 	$sender = $this->session->userdata('userID');
+		$receiver = $this->input->post('friend');
+	 	$gift = $this->input->post('gift_type');
+
+		$this->gifts_model->send_gift($sender, $receiver, $gift);
+
+		header('refresh:3000;url='.$this->go_home());
+	}
+
+	public function go_home()
+	{
+		redirect('main/welcome','refresh');
+	}
+	
+
+
+}
+
+?>

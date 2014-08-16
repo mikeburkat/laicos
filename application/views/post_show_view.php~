@@ -1,0 +1,28 @@
+<div class="container">
+<div id="newsfeed">	</div>
+</div>
+
+
+<script>
+	$(function(){
+		console.log(id);
+		var user = new User();
+	});
+</script>
+
+<script>
+	$(function(){
+		var post = new Post();
+		console.log('calling get post...');
+		post.get_post('<?php echo $postID; ?>');
+	});
+</script>
+
+
+<script src="<?=site_url()?>js/message.js"></script>
+<script src="<?=site_url()?>js/friend_request.js"></script>
+<script src="<?=site_url()?>js/post_template.js"></script>
+<script src="<?=site_url()?>js/user_template.js"></script>
+<script src="<?=site_url()?>js/user_event.js"></script>
+<script src="<?=site_url()?>js/user.js"></script>
+<script src="<?=site_url()?>js/post.js"></script>
