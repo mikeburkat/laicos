@@ -18,7 +18,7 @@ var GroupBrowserTemplate = function() {
 //		output += '<div id=group_id_'+obj.clubID+'>';
 		
 //		output += 'Group ID: ' + obj.clubID + '<br>';
-		output += '<a id=group_id_'+obj.clubID+' href="'+base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" 
+		output += '<a id=group_id_'+obj.clubID+' href="'+base_url + "/" + pathArray[1] 
 			+ '/group/show/'+obj.clubID+'"> ' + obj.name + ' </a>';
 //		output += 'Description: ' + obj.description + '<br>';
 	

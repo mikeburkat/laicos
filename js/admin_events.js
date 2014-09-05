@@ -55,7 +55,7 @@ var AdminEvents = function () {
     	$('#create_group_submit').submit(function(e) {
     		e.preventDefault();
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/create_group/';
+    		var url = base_url + "/" + pathArray[1] + '/api/create_group/';
     		
         	var input = $('form').serializeArray();
         	
@@ -77,7 +77,7 @@ var AdminEvents = function () {
             		Message.error("This group name is already used, choose a different name.");
             	} else {
             		$("#create_group_submit")[0].reset();
-            		window.location.href = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + "/group/show/" + o;
+            		window.location.href = base_url + "/" + pathArray[1] + "/group/show/" + o;
             	}
             	
             }, 'json');
@@ -90,7 +90,7 @@ var AdminEvents = function () {
     	$("body").on('click', '#request_senior_button', function(e) {
     		e.preventDefault();
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_request_role/';
+    		var url = base_url + "/" + pathArray[1] + '/api/add_request_role/';
     		
         	var postData = {userID : myID, role : 'senior'};
       
@@ -115,7 +115,7 @@ var AdminEvents = function () {
     	$("body").on('click', '#request_admin_button', function(e) {
     		e.preventDefault();
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_request_role/';
+    		var url = base_url + "/" + pathArray[1] + '/api/add_request_role/';
     		
         	var postData = {userID : myID, role : 'administrator'};
       
@@ -152,7 +152,7 @@ var AdminEvents = function () {
     			answer = "denied"
     		}
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/set_role/';
+    		var url = base_url + "/" + pathArray[1] + '/api/set_role/';
         	var postData = {
         			userID : userID, 
         			role : role,
@@ -180,7 +180,7 @@ var AdminEvents = function () {
     	$('#generate').submit(function(e) {
     		e.preventDefault();
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_invite/';
+    		var url = base_url + "/" + pathArray[1] + '/api/add_invite/';
         	var input = $('form').serializeArray();
         	
         	var postData = {};
@@ -220,7 +220,7 @@ var AdminEvents = function () {
     		var status = 'suspended';
     		var userID = button.data('userid');
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/set_status/';
+    		var url = base_url + "/" + pathArray[1] + '/api/set_status/';
         	var postData = {userID : userID, status : status};
       
             $.post(url, postData, function(o) {
@@ -251,7 +251,7 @@ var AdminEvents = function () {
     		var status = 'inactive';
     		var userID = button.data('userid');
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/set_status/';
+    		var url = base_url + "/" + pathArray[1] + '/api/set_status/';
         	var postData = {userID : userID, status : status};
       
             $.post(url, postData, function(o) {
@@ -282,7 +282,7 @@ var AdminEvents = function () {
     		var status = 'active';
     		var userID = button.data('userid');
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/set_status/';
+    		var url = base_url + "/" + pathArray[1] + '/api/set_status/';
         	var postData = {userID : userID, status : status};
       
             $.post(url, postData, function(o) {
@@ -313,7 +313,7 @@ var AdminEvents = function () {
     		var userID = button.data('userid');
     		var status = button.data('status');
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_relationship/';
+    		var url = base_url + "/" + pathArray[1] + '/api/remove_relationship/';
         	var postData = {id : userID, myID : myID, status : status};
       
             $.post(url, postData, function(o) {
@@ -441,7 +441,7 @@ var AdminEvents = function () {
     		
     		console.log("myID: " + myID + " c: " + clubID);
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + "/api/remove_membership/";
+    		var url = base_url + "/" + pathArray[1] + "/api/remove_membership/";
     		
     		var postData = {
         			myID: myID,
@@ -476,7 +476,7 @@ var AdminEvents = function () {
     		
     		console.log("myID: " + myID + " c: " + clubID);
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + "/api/delete_group_tree/";
+    		var url = base_url + "/" + pathArray[1] + "/api/delete_group_tree/";
     		
     		var postData = {
     				myID: myID,

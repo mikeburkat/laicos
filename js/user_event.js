@@ -36,7 +36,7 @@ var UserEvent = function() {
 
 			console.log('add to ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_relationship/';
+			var url = base_url + "/" + pathArray[1] + '/api/add_relationship/';
 			var postData = {
 				'myID' : myID,
 				'id' : id,
@@ -58,7 +58,7 @@ var UserEvent = function() {
 
 			console.log('remove ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_relationship/';
+			var url = base_url + "/" + pathArray[1] + '/api/remove_relationship/';
 			var postData = {
 				'myID' : myID,
 				'id' : id,
@@ -81,7 +81,7 @@ var UserEvent = function() {
 
 			console.log('remove ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_relationship/';
+			var url = base_url + "/" + pathArray[1] + '/api/remove_relationship/';
 			var postData = {
 				'myID' : myID,
 				'id' : id,
@@ -104,7 +104,7 @@ var UserEvent = function() {
 
 			console.log('add to ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_relationship/';
+			var url = base_url + "/" + pathArray[1] + '/api/add_relationship/';
 			var postData = {
 				'myID' : myID,
 				'id' : id,
@@ -126,7 +126,7 @@ var UserEvent = function() {
 
 			console.log('remove ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_relationship/';
+			var url = base_url + "/" + pathArray[1] + '/api/remove_relationship/';
 			var postData = {
 				'myID' : myID,
 				'id' : id,
@@ -149,7 +149,7 @@ var UserEvent = function() {
 
 			console.log('remove ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_relationship/';
+			var url = base_url + "/" + pathArray[1] + '/api/remove_relationship/';
 			var postData = {
 				'myID' : myID,
 				'id' : id,
@@ -171,7 +171,7 @@ var UserEvent = function() {
 
 			console.log('add to ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_relationship/';
+			var url = base_url + "/" + pathArray[1] + '/api/add_relationship/';
 			var postData = {
 				'myID' : myID,
 				'id' : id,
@@ -193,7 +193,7 @@ var UserEvent = function() {
 
 			console.log('remove ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_relationship/';
+			var url = base_url + "/" + pathArray[1] + '/api/remove_relationship/';
 			var postData = {
 				'myID' : myID,
 				'id' : id,
@@ -216,7 +216,7 @@ var UserEvent = function() {
 
 			console.log('remove ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_relationship/';
+			var url = base_url + "/" + pathArray[1] + '/api/remove_relationship/';
 			var postData = {
 				'myID' : myID,
 				'id' : id,
@@ -244,7 +244,7 @@ var UserEvent = function() {
 	// ------------------------------------------------------------------------
 
 	var updatePostList = function(postId) {
-		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_user_wall_posts/';
+		var url = base_url + "/" + pathArray[1] + '/api/get_user_wall_posts/';
 		var postData = {
 			userID : id,
 			postID : postId
@@ -383,7 +383,7 @@ var UserEvent = function() {
 	// ------------------------------------------------------------------------
 
 	var updateCommentList = function(dom, postId) {
-		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_one_child_post/';
+		var url = base_url + "/" + pathArray[1] + '/api/get_one_child_post/';
 		var postData = {
 			postID : postId
 		};

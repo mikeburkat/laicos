@@ -33,7 +33,7 @@ var GroupEvent = function() {
 
 			console.log('add to ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_membership/';
+			var url = base_url + "/" + pathArray[1] + '/api/add_membership/';
 			var postData = {
 				'myID' : myID,
 				'groupID' : id,
@@ -55,7 +55,7 @@ var GroupEvent = function() {
 
 			console.log('remove ' + myID + ' friend ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_membership/';
+			var url = base_url + "/" + pathArray[1] + '/api/remove_membership/';
 			var postData = {
 				'myID' : myID,
 				'groupID' : id,
@@ -78,7 +78,7 @@ var GroupEvent = function() {
 
 			console.log('remove ' + myID + ' group ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_membership/';
+			var url = base_url + "/" + pathArray[1] + '/api/remove_membership/';
 			var postData = {
 				'myID' : myID,
 				'groupID' : id,
@@ -100,7 +100,7 @@ var GroupEvent = function() {
 
 			console.log('remove ' + myID + ' group ' + id);
 
-			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/delete_group_tree/';
+			var url = base_url + "/" + pathArray[1] + '/api/delete_group_tree/';
 			var postData = {
 				'myID' : myID,
 				'groupID' : id
@@ -131,7 +131,7 @@ var GroupEvent = function() {
 	// ------------------------------------------------------------------------
 
 	var updatePostList = function(postId) {
-		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_group_wall_posts/';
+		var url = base_url + "/" + pathArray[1] + '/api/get_group_wall_posts/';
 		var postData = {
 			groupID : id,
 			postID : postId
@@ -263,7 +263,7 @@ var GroupEvent = function() {
 	// ------------------------------------------------------------------------
 
 	var updateCommentList = function(dom, postId) {
-		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_one_child_post/';
+		var url = base_url + "/" + pathArray[1] + '/api/get_one_child_post/';
 		var postData = {
 			postID : postId
 		};

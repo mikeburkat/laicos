@@ -12,7 +12,7 @@ var UserTemplate = function() {
 	// ------------------------------------------------------------------------
 
 	var editOptions = function() {
-		edit_button = '<a href="' + base_url + '/' + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/user/settings' + '" >'
+		edit_button = '<a href="' + base_url + '/' + pathArray[1] + '/user/settings' + '" >'
 			+ '<button type="button" class="btn btn-primary">Edit My Profile</button>'
 			+ '</a>';
 		$('#edit_profile').html(edit_button);

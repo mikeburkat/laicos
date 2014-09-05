@@ -18,7 +18,7 @@ var Post = function () {
         
     this.get_newsfeed = function() {
     	
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_newsfeed/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_newsfeed/';
     	var postData = {userID: myID};
     	
 		console.log('getting a newfeed request...');
@@ -42,7 +42,7 @@ var Post = function () {
     // ------------------------------------------------------------------------
     this.get_post = function(postId) {
     	
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_post/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_post/';
     	var postData = {postID: id};
 
         $.post(url, postData, function(o) {
@@ -64,7 +64,7 @@ var Post = function () {
     
     this.list_user_posts = function() {
     	
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_user_wall_posts/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_user_wall_posts/';
     	var postData = {userID: id};
     	
         $.post(url, postData, function(o) {
@@ -87,7 +87,7 @@ var Post = function () {
     
     this.list_group_posts = function() {
     	
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_group_wall_posts/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_group_wall_posts/';
     	var postData = {groupID: id};
     	
         $.post(url, postData, function(o) {
@@ -109,7 +109,7 @@ var Post = function () {
     // ------------------------------------------------------------------------
     
     var list_comments = function(parents) {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_child_posts/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_child_posts/';
 		var postData = {
 			parentIDs : parents
 		};
@@ -126,7 +126,7 @@ var Post = function () {
     // ------------------------------------------------------------------------
     
     var set_harted_state = function(parents) {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_hearted_state/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_hearted_state/';
 		var postData = {
 			userID : myID,
 			postIDs : parents
@@ -145,7 +145,7 @@ var Post = function () {
     // ------------------------------------------------------------------------
     
     var list_heart_counts = function(parents) {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_heart_counts/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_heart_counts/';
 		var postData = {
 			postIDs : parents
 		};
@@ -206,7 +206,7 @@ var Post = function () {
     // ------------------------------------------------------------------------
     
     var show_delete_buttons = function(parents) {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/confirm_post_ownership/';
+    	var url = base_url + "/" + pathArray[1] + '/api/confirm_post_ownership/';
 		var postData = {
 			userID : myID,
 			postIDs : parents
@@ -227,7 +227,7 @@ var Post = function () {
     	$("body").on('click', '#delete_button', function(e) {
 			e.preventDefault();
     	
-	    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/delete_post/';
+	    	var url = base_url + "/" + pathArray[1] + '/api/delete_post/';
 	    	
 	    	var button = $(this);
 	    	
@@ -256,7 +256,7 @@ var Post = function () {
     	$("body").on('click', '#share_button', function(e) {
 			e.preventDefault();
     	
-	    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/share_post/';
+	    	var url = base_url + "/" + pathArray[1] + '/api/share_post/';
 	    	
 	    	var button = $(this);
 	    	

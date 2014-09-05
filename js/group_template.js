@@ -35,7 +35,7 @@ var GroupTemplate = function() {
 		output += '<div id=user_id_'+obj.userID+'>';
 		
 //		output += 'Member ID: ' + obj.userID + '<br>';
-		output += 'Name: ' + '<a href="' + base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" 
+		output += 'Name: ' + '<a href="' + base_url + "/" + pathArray[1] 
 			+ '/user/show/'+obj.userID+'">' + obj.firstName + ' ' + obj.lastName + '</a><br>';
 		
 		output += '</div>';

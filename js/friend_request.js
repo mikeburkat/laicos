@@ -9,7 +9,7 @@
 		console.log("myID: " + myID + " f: " + friendID + " s: " + status);
 		$("#request_"+status+"_"+friendID).remove();
 		
-		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/accept_relationship_request/';
+		var url = base_url + "/" + pathArray[1] + '/api/accept_relationship_request/';
     	var postData = {userID1: friendID, userID2: myID, status: status};
     	
     	 $.post(url, postData, function(o) {
@@ -33,7 +33,7 @@
 		console.log("myID: " + myID + " f: " + friendID + " s: " + status);
 		$("#request_"+status+"_"+friendID).remove();
 		
-		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/decline_relationship_request/';
+		var url = base_url + "/" + pathArray[1] + '/api/decline_relationship_request/';
 		var postData = {userID1: friendID, userID2: myID, status: status};
     	
     	 $.post(url, postData, function(o) {
@@ -69,7 +69,7 @@ var FriendRequest = function() {
 
 	var listRequests = function() {
 		
-		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_pending_relationships/';
+		var url = base_url + "/" + pathArray[1] + '/api/get_pending_relationships/';
     	var postData = {userID: myID};
     	
     	 $.post(url, postData, function(o) {

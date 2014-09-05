@@ -34,7 +34,7 @@ var UserBrowser = function () {
     // ------------------------------------------------------------------------
     
     var list_filters = function() {
-    	var url =  base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_all_filters/';
+    	var url =  base_url + "/" + pathArray[1] + '/api/get_all_filters/';
     	var postData = {tag: 'all'};
     	
         $.post(url, postData, function(o) {
@@ -52,7 +52,7 @@ var UserBrowser = function () {
     // ------------------------------------------------------------------------
     
     var list_users = function() {
-    	var url =  base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_all_users/';
+    	var url =  base_url + "/" + pathArray[1] + '/api/get_all_users/';
     	var postData = {group: 'all'};
     	
         $.post(url, postData, function(o) {

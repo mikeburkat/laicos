@@ -34,7 +34,7 @@ var GroupBrowser = function () {
     // ------------------------------------------------------------------------
     
     var list_tags = function() {
-    	var url =  base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_tags/';
+    	var url =  base_url + "/" + pathArray[1] + '/api/get_tags/';
     	var postData = {tag: 'all'};
     	
         $.post(url, postData, function(o) {
@@ -52,7 +52,7 @@ var GroupBrowser = function () {
     // ------------------------------------------------------------------------
     
     var list_groups = function() {
-    	var url =  base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_groups/';
+    	var url =  base_url + "/" + pathArray[1] + '/api/get_groups/';
     	var postData = {group: 'all'};
     	
         $.post(url, postData, function(o) {

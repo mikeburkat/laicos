@@ -56,7 +56,7 @@ var Admin = function () {
     // ------------------------------------------------------------------------
     
     var list_all_users = function () {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_all_users/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_all_users/';
     	var postData = {};
     	
         $.post(url, postData, function(o) {
@@ -86,7 +86,7 @@ var Admin = function () {
     // ------------------------------------------------------------------------
     
     var request_seniority_block = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_role_requests/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_role_requests/';
     	var postData = {userID : myID, role : 'senior'};
     	
         $.post(url, postData, function(o) {
@@ -109,7 +109,7 @@ var Admin = function () {
     // ------------------------------------------------------------------------
     
     var request_admin_block = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_role_requests/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_role_requests/';
     	var postData = {userID : myID, role : 'administrator'};
     	
         $.post(url, postData, function(o) {
@@ -131,7 +131,7 @@ var Admin = function () {
     // ------------------------------------------------------------------------
     
     var list_role_requests = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_role_requests/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_role_requests/';
     	var postData = {};
     	
         $.post(url, postData, function(o) {
@@ -188,7 +188,7 @@ var Admin = function () {
     // ------------------------------------------------------------------------
     
     var list_owned_groups = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_membership/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_membership/';
     	var postData = { userID : myID, role : 'owner'};
     	
         $.post(url, postData, function(o) {
@@ -230,7 +230,7 @@ var Admin = function () {
     // ------------------------------------------------------------------------
     
     var list_membership_requests = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_membership_requests/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_membership_requests/';
     	var postData = {userID : myID};
     	
         $.post(url, postData, function(o) {
@@ -280,7 +280,7 @@ var Admin = function () {
     // ------------------------------------------------------------------------
     
     var list_member_groups = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_membership/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_membership/';
     	var postData = { userID : myID, role : 'member'};
     	
         $.post(url, postData, function(o) {
@@ -322,7 +322,7 @@ var Admin = function () {
     // ------------------------------------------------------------------------
     
     var list_friend_requests = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_pending_relationships/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_pending_relationships/';
     	var postData = {userID: myID};
     	
         $.post(url, postData, function(o) {
@@ -373,7 +373,7 @@ var Admin = function () {
     // ------------------------------------------------------------------------
     
     var list_relationship = function(relationship) {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_relationship/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_relationship/';
     	var postData = {userID1 : myID, status : relationship};
     	
         $.post(url, postData, function(o) {

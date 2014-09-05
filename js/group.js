@@ -19,7 +19,7 @@ var Group = function (i) {
     // ------------------------------------------------------------------------
     
     var info = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_group_info/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_group_info/';
     	var postData = {clubID: $(this).attr('id')};
     	
         $.post(url, postData, function(o) {
@@ -40,7 +40,7 @@ var Group = function (i) {
     // ------------------------------------------------------------------------
     
     var list_tags = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_group_tags/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_group_tags/';
     	var postData = {clubID: $(this).attr('id')};
     	
         $.post(url, postData, function(o) {
@@ -58,7 +58,7 @@ var Group = function (i) {
     // ------------------------------------------------------------------------
     
     var show_owner = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_group_owner/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_group_owner/';
     	var postData = {clubID: $(this).attr('id')};
     	
         $.post(url, postData, function(o) {
@@ -75,7 +75,7 @@ var Group = function (i) {
     // ------------------------------------------------------------------------
     
     var list_members = function() {
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_group_members/';
+    	var url = base_url + "/" + pathArray[1] + '/api/get_group_members/';
     	var postData = {clubID: $(this).attr('id')};
     	
         $.post(url, postData, function(o) {
@@ -93,7 +93,7 @@ var Group = function (i) {
     
     var check_membership = function() {
     	
-    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/check_membership/';
+    	var url = base_url + "/" + pathArray[1] + '/api/check_membership/';
     	var postData = {userID: myID,
     					groupID: id};
     	

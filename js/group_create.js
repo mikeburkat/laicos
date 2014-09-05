@@ -16,7 +16,7 @@ var GroupCreate = function () {
     	$('#create').submit(function(e) {
     		event.preventDefault();
     		
-    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/create_group/';
+    		var url = base_url + "/" + pathArray[1] + '/api/create_group/';
     		
         	var input = $('form').serializeArray();
         	
@@ -34,7 +34,7 @@ var GroupCreate = function () {
             	var output = '';
             	console.log('group created? ' + o);
             	
-            	window.location.href = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + "/group/show/" + o;
+            	window.location.href = base_url + "/" + pathArray[1] + "/group/show/" + o;
             	
             }, 'json');
         });

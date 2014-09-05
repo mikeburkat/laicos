@@ -33,7 +33,7 @@ var GroupBrowserEvent = function () {
              tags = tags.filter(function(v){return v!==''});
              
              console.log(tags);
-             var url =  base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_groups_of_tag/';
+             var url =  base_url + "/" + pathArray[1] + '/api/get_groups_of_tag/';
          	 var postData = {tagIDs: tags};
          	
              $.post(url, postData, function(data) {
@@ -67,7 +67,7 @@ var GroupBrowserEvent = function () {
             tags = tags.split(" + ");
             tags = tags.filter(function(v){return v!==''});
          	
-         	var url =  base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/get_tags_of_groups/';
+         	var url =  base_url + "/" + pathArray[1] + '/api/get_tags_of_groups/';
          	var postData = {clubIDs : groups, tagIDs : tags};
          	$.post(url, postData, function(data) {
            	 showTags(data);

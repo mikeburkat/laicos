@@ -20,7 +20,7 @@ var PostTemplate = function() {
 		output += '<div class="panel-heading">';
 		output += '<h3 class="panel-title">' + '<a href="' + base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?"
 		output += '/user/show/' + parent.userID + '">' + parent.firstName + ' ' + parent.lastName + '</a>'
-		output += ' @ ' + '<a href="'+base_url+ "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/post/show/' + parent.postID+ '">' + parent.timeCreated+ '<a/>     ';
+		output += ' @ ' + '<a href="'+base_url+ "/" + pathArray[1] + '/post/show/' + parent.postID+ '">' + parent.timeCreated+ '<a/>     ';
 		
 		output += '<span id="delete_' + parent.postID + '"></span>   ';
 		

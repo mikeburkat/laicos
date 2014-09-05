@@ -19,7 +19,7 @@ var UserBrowserTemplate = function() {
 
 		// output += 'Group ID: ' + obj.clubID + '<br>';
 		output += '<a id=user_id_' + obj.userID + ' href="' + base_url + "/"
-				+ pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/user/show/' + obj.userID + '"> '
+				+ pathArray[1] + '/user/show/' + obj.userID + '"> '
 				+ obj.firstName + " " + obj.lastName + '</a>';
 		// output += 'Description: ' + obj.description + '<br>';
 

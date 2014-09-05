@@ -39,7 +39,7 @@ var UserBrowserEvent = function () {
              }
              
              console.log(filter);
-             var url =  base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/sort_users_by_filter/';
+             var url =  base_url + "/" + pathArray[1] + '/api/sort_users_by_filter/';
          	 var postData = {sortBy: filter, order: 'ASC'};
          	
              $.post(url, postData, function(data) {
