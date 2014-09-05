@@ -1,4 +1,4 @@
-
+// remote project
 
 var AdminEvents = function () {
 	
@@ -18,6 +18,12 @@ var AdminEvents = function () {
         inactivate_pressed();
         activate_pressed();
         
+        remove_friend_pressed();
+		friend_request_pressed(); 
+		membership_request_pressed();
+		
+		leave_group_pressed();
+		delete_group_pressed();
     };
     
     var base_url = window.location.origin;
@@ -57,9 +63,9 @@ var AdminEvents = function () {
         	
         	var postData = {};
         	postData['userID'] = myID;
-        	postData['name'] = input[0]['value'];
-        	postData['description'] = input[1]['value'];
-        	postData['posting'] = input[2]['value'];
+        	postData['name'] = input[1]['value'];
+        	postData['description'] = input[2]['value'];
+        	postData['posting'] = input[3]['value'];
         	
         	console.log(postData);
         	
@@ -192,8 +198,8 @@ var AdminEvents = function () {
             	var output = '';
             	console.log('invite created? ' + o);
             	
-            	if (o == 0) {
-            		Message.error("This group name is already used, choose a different name.");
+            	if (o.split(" ")[0] == "Error") {
+            		Message.error(o);
             	} else {
             		$("#generated_output").html(o);
             	}
@@ -296,22 +302,216 @@ var AdminEvents = function () {
     
     // ------------------------------------------------------------------------
     
-    
+    var remove_friend_pressed = function() {
+    	$("body").on('click', '#remove_relationship', function(e) {
+    		e.preventDefault();
+    		
+    		var button = $(this);
+    		var row = button.parent().parent();
+    		console.log(row);
+    		
+    		var userID = button.data('userid');
+    		var status = button.data('status');
+    		
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_relationship/';
+        	var postData = {id : userID, myID : myID, status : status};
+      
+            $.post(url, postData, function(o) {
+            	var output = '';
+            	
+            	if (o.split(" ")[1] != "are") {
+            		Message.error(o);
+            	} else {
+            		Message.success(o);
+            		row.hide();
+            	}
+            	
+            }, 'json');
+        });
+    };
     
     // ------------------------------------------------------------------------
     
+    var friend_request_pressed = function() {
+    	$("body").on('click', '#relationship_request', function(e) {
+    		e.preventDefault();
+    		
+    		var button = $(this);
+    		var row = button.parent().parent();
+    		console.log(row);
+    		
+    		var userID = button.data('userid');
+    		var rstatus = button.data('relation');
+    		var accept = button.html();
+    		
+    		console.log("myID: " + myID + " f: " + userID + " s: " + rstatus);
+    		
+    		
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?";
+    		if (accept == 'Accept') {
+    			url += '/api/accept_relationship_request/';
+    		} else {
+    			url += '/api/decline_relationship_request/';
+    		}
+    		var postData = {
+        			userID1: userID,
+        			userID2: myID,
+        			status: rstatus};
+        	
+        	 $.post(url, postData, function(o) {
+        		 if (accept == 'Accept') {
+	        		 if (o == 1) {
+	        			 Message.success("Request was accepted.");
+						 row.hide();
+	        		 } else {
+	        			 Message.error("Request accept failed.");	 
+	        		 }
+        		 } else {
+        			 if (o == 1) {
+	        			 Message.success("Request was declined.");
+						 row.hide();
+	        		 } else {
+	        			 Message.error("Request accept failed.");	 
+	        		 }
+        		 }
+             }, 'json');
+        });
+    }
     
+    // ------------------------------------------------------------------------
+     
+    var membership_request_pressed = function() {
+    	$("body").on('click', '#membership_request', function(e) {
+    		e.preventDefault();
+    		
+    		var button = $(this);
+    		var row = button.parent().parent();
+    		console.log(row);
+    		
+    		var userID = button.data('userid');
+    		var clubID = button.data('clubid');
+    		var accept = button.html();
+    		
+    		console.log("myID: " + myID + " f: " + userID + " c: " + clubID);
+    		
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?";
+    		if (accept == 'Accept') {
+    			url += '/api/accept_membership_request/';
+    		} else {
+    			url += '/api/remove_membership/';
+    		}
+    		var postData = {
+        			myID: userID,
+        			groupID: clubID,
+        			role: "member pending"
+        			};
+        	
+        	 $.post(url, postData, function(o) {
+        		 if (accept == 'Accept') {
+	        		 if (o == 1) {
+	        			 Message.success("Request was accepted.");
+						 row.hide();
+	        		 } else {
+	        			 Message.error("Request accept failed.");	 
+	        		 }
+        		 } else {
+        			 if (o.split(" ")[1] == "are") {
+	        			 Message.success("Request was declined.");
+						 row.hide();
+	        		 } else {
+	        			 Message.error("Request accept failed.");	 
+	        		 }
+        		 }
+             }, 'json');
+        });
+    };
     
     // ------------------------------------------------------------------------
     
-   
+    var leave_group_pressed = function() {
+    	$("body").on('click', '#leave_group', function(e) {
+    		e.preventDefault();
+    		
+    		var button = $(this);
+    		var row = button.parent().parent();
+    		console.log(row);
+    		
+    		var clubID = button.data('clubid');
+    		var accept = button.html();
+    		
+    		console.log("myID: " + myID + " c: " + clubID);
+    		
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + "/api/remove_membership/";
+    		
+    		var postData = {
+        			myID: myID,
+        			groupID: clubID,
+        			role: "member"
+        			};
+        	
+        	 $.post(url, postData, function(o) {
+    			 if (o.split(" ")[1] == "are") {
+        			 Message.success("You succesfully left the group.");
+					 row.hide();
+        		 } else {
+        			 Message.error("There was an error while trying to leave the group.");	 
+        		 }
+        		 
+             }, 'json');
+        });
+    };
     
     // ------------------------------------------------------------------------
     
-    
+    var delete_group_pressed = function() {
+    	$("body").on('click', '#delete_group', function(e) {
+    		e.preventDefault();
+    		
+    		var button = $(this);
+    		var row = button.parent().parent();
+    		console.log(row);
+    		
+    		var clubID = button.data('clubid');
+    		var accept = button.html();
+    		
+    		console.log("myID: " + myID + " c: " + clubID);
+    		
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + "/api/delete_group_tree/";
+    		
+    		var postData = {
+    				myID: myID,
+        			groupID: clubID
+        	};
+        	
+        	 $.post(url, postData, function(o) {
+    			 if (o == 1) {
+        			 Message.success("You succesfully deleted the group.");
+					 row.hide();
+        		 } else {
+        			 Message.error("There was an error while trying to delete the group.");	 
+        		 }
+        		 
+             }, 'json');
+        });
+    };
     
     // ------------------------------------------------------------------------
     
     this.__construct();
     
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

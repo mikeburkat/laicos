@@ -22,7 +22,7 @@ class Registration extends CI_Controller{
 			$result = mysql_fetch_row($query);
 			if ($result)
 			{
-				echo $result[0];
+// 				echo $result[0];
 				$data['title'] = "Register for a Laicos Account";
 				$this->load->view('templates/header',$data);
 				$this->load->view('registration_view',$data);
@@ -78,7 +78,9 @@ class Registration extends CI_Controller{
 		{	
 		$this->registration_model->add_user();
 		echo 'You have successfully registered! You are being redirected to login.';
-		header('refresh:3;url='.$this->login()); //redirect to login with delay
+		redirect('main/welcome',5);
+		//echo '<a href="'.site_url().'>main login page</a>';
+		//header('refresh:3;url='.$this->login()); //redirect to login with delay
 		}
 
   

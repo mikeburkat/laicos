@@ -315,6 +315,7 @@ var UserEvent = function() {
 			if (type == 'image_file') {
 				
 				var file = form.prop('files')[0];
+				
 				console.log(file);
 				
 				var FR = new FileReader();
@@ -328,13 +329,16 @@ var UserEvent = function() {
 		        
 			} else if (type == 'message') {
 				postData['message'] = form.prop('value');
+				if (postData['message'] == "") {
+					return;
+				}
 				sendSubmitPost(url, postData);
 			} else if (type == 'video_link') {
 				var videoLink = form.prop('value');
 				postData['video'] = form.prop('value');
-				
-				
-				
+				if (postData['video'] == "") {
+					return;
+				}
 				sendSubmitPost(url, postData);
 			}
 		});
@@ -420,8 +424,12 @@ var UserEvent = function() {
 			postData['postID'] = postID;
 			postData['message'] = $('form').prop('comment').value;
 
+			if (postData['message'] == "") {
+				return;
+			}
+			
 			console.log(postData);
-
+			
 			$.post(url, postData, function(o) {
 				var output = '';
 				console.log('post added? ' + o);

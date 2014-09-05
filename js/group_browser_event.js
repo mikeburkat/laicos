@@ -50,12 +50,17 @@ var GroupBrowserEvent = function () {
     		var groups = [];
          	var output = '';
          	console.log('get groups for tag');
+         	
+         	output += '<ul class="list-group">';
          	for (var i = 0; i < o.length; i++ ) {
+         		output += '<li class="list-group-item">';
          		output += browserTemplate.group(o[i]);
          		groups[groups.length] = ""+o[i].clubID;
-         	}
-         	console.log(output);
+         		output += '</li>';
+        	}
+        	output += '</ul>';
          	$("#group_list").html(output);
+         	
          	console.log("groups: " + groups);
          	
          	var tags = $("#selected_tag_ids").html();

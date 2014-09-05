@@ -29,7 +29,9 @@ class Registration_model extends CI_Model {
 	'privacy'=>$this->input->post('privacy'),
 	//'dateCreated'=> date('Y-m-d H:i:s'),//$this->input->post->('dateCreated'),
 	'dateCreated'=> $now->format('Y-m-d H:i:s'),// this works formatted
+	'currentLogin'=> $now->format('Y-m-d H:i:s'),
 	'password'=>md5($this->input->post('password'))
+	
   );
   $this->db->insert('user',$data);
  }

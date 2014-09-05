@@ -15,16 +15,27 @@
 	});
 </script>
 
-<h3>Selected Filter</h3>
-<div id="selected_filters"></div>
-<div class="hidden" id="selected_filter_ids"></div>
-<br>
-<h3>Filters</h3>
-<div id="filter_list"><span class="ajax-loader-gray"></span></div>
-<br>
-<h3>Users</h3>
-<div id="user_list"><span class="ajax-loader-gray"></span></div>
-<br>
-
+<div class="container">
+	<h3>Selected Filter</h3>
+	<div class="container">
+		<div id="selected_filters"></div>
+		<div class="hidden" id="selected_filter_ids"></div>
+	</div>
+	<br>
+	<h3>Filters</h3>
+	<div class="container">
+		<div id="filter_list">
+			<span class="ajax-loader-gray"></span>
+		</div>
+	</div>
+	<br>
+	<h3>Users</h3>
+	<div class="container">
+		<div id="user_list">
+			<span class="ajax-loader-gray"></span>
+		</div>
+	</div>
+	<br>
+</div>
 
 

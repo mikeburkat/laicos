@@ -76,7 +76,7 @@ var GroupEvent = function() {
 		$("body").on('click', '#cancel_request', function(e) {
 			e.preventDefault();
 
-			console.log('remove ' + myID + ' friend ' + id);
+			console.log('remove ' + myID + ' group ' + id);
 
 			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_membership/';
 			var postData = {
@@ -95,10 +95,10 @@ var GroupEvent = function() {
 	// ------------------------------------------------------------------------
 	
 	var deleteGroup = function() {
-		$("body").on('click', '#delete_group', function(e) {
+		$("body").on('click', '#delete_group_button', function(e) {
 			e.preventDefault();
 
-			console.log('remove ' + myID + ' friend ' + id);
+			console.log('remove ' + myID + ' group ' + id);
 
 			var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/delete_group_tree/';
 			var postData = {
@@ -107,7 +107,12 @@ var GroupEvent = function() {
 			};
 
 			$.post(url, postData, function(data) {
-				result(data);
+				if (data == 0) {
+					Message.error("Deletion Failed.");
+				} else {
+					window.location.reload();
+					Message.success("Group was Deleted.");
+				}
 			}, 'json');
 		});
 	};

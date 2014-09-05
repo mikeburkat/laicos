@@ -1,4 +1,3 @@
-	
 <?PHP
 if(empty($_GET['mail']))
 {

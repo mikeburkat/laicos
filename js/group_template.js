@@ -14,14 +14,14 @@ var GroupTemplate = function() {
 	this.group = function(obj) {
 		console.log(obj);
 		var output = '';
-		
+		output += '<br>';
 		output += '<div id=group_id_'+obj.clubID+'>';
 		
-		output += 'Group ID: ' + obj.clubID + '<br>';
-		output += 'Name: ' + obj.name + '<br>';
-		output += 'Description: ' + obj.description + '<br>';
-		output += 'Owner: ' + obj.founderID + '<br>';
-		output += 'Posting Allowed: ' + obj.posts_allowed_by_members + '<br>';
+//		output += 'Group ID: ' + obj.clubID + '<br>';
+		output += '<h4>Name: ' + obj.name + '</h4>';
+		output += '<h4>Description: ' + obj.description + '</h4><br>';
+//		output += 'Owner: ' + obj.founderID + '<br>';
+//		output += 'Posting Allowed: ' + obj.posts_allowed_by_members + '<br>';
 		output += '</div>';
 		return output;
 	};
@@ -34,7 +34,7 @@ var GroupTemplate = function() {
 		
 		output += '<div id=user_id_'+obj.userID+'>';
 		
-		output += 'Member ID: ' + obj.userID + '<br>';
+//		output += 'Member ID: ' + obj.userID + '<br>';
 		output += 'Name: ' + '<a href="' + base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" 
 			+ '/user/show/'+obj.userID+'">' + obj.firstName + ' ' + obj.lastName + '</a><br>';
 		
@@ -96,8 +96,8 @@ var GroupTemplate = function() {
 	// ------------------------------------------------------------------------
 
 	this.deleteGroup = function() {
-		family_button = '<a id="delete_group" href="#"><button type="button" class="btn btn-danger">Delete Group</button></a>';
-		$('#delete_button').html(family_button);
+		family_button = '<a id="delete_group_button" href="#"><button type="button" class="btn btn-danger">Delete Group</button></a>';
+		$('#delete_group').html(family_button);
 	};
 	
 	// ------------------------------------------------------------------------

@@ -36,13 +36,16 @@
 		<div id="user_info_block">
 			<div class="row">
 				<div  class="col-md-offset-1">
-					<h3>Info</h3>
 					
+					<br><br>
 					<div id="edit_profile"></div>
 					<div id="frind_button"></div>
 					<div id="family_button"></div>
 					<div id="collegue_button"></div>
 					<br>
+					
+					<div id="user_name"></div>
+					
 					<div id="profile_photo">
 					<?php 
 					
@@ -55,6 +58,8 @@
 					$pic_url = 'uploads/'.$db_pic;			
 					?>
 					<img src="<?php echo base_url().$pic_url;?>" height="100"></div> <br>
+					
+					
 					<div id="user_info">
 					
 						<span class="ajax-loader-gray"></span>

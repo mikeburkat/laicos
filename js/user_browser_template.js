@@ -20,7 +20,7 @@ var UserBrowserTemplate = function() {
 		// output += 'Group ID: ' + obj.clubID + '<br>';
 		output += '<a id=user_id_' + obj.userID + ' href="' + base_url + "/"
 				+ pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/user/show/' + obj.userID + '"> '
-				+ obj.firstName + " " + obj.lastName + ' </a>';
+				+ obj.firstName + " " + obj.lastName + '</a>';
 		// output += 'Description: ' + obj.description + '<br>';
 
 		// output += '</div>';
@@ -38,7 +38,11 @@ var UserBrowserTemplate = function() {
 		// output += 'Tag ID: ' + obj.tagID + '<br>';
 		output += '<a id=filter_name_' + obj + ' class="filter_click" ';
 		output += 'data-name="' + obj + '" ';
-		output += 'href="#"> ' + obj + ' </a>';
+		output += 'href="#">';
+		output += '<button type="button" class="btn btn-primary btn-xs">';
+	    output += obj;
+	    output += '</button>';
+	    output += ' </a>';
 
 		// output += '</div>';
 		return output;

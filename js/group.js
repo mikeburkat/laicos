@@ -27,7 +27,11 @@ var Group = function (i) {
         	console.log('group info');
         	for (var i = 0; i < o.length; i++ ) {
         		output += GroupTemplate.group(o[i]);
+        		if (o[i].posts_allowed_by_members == 0) {
+        			$("#post_button").remove();
+        		}
         	}
+        	
         	
         	$("#group_info").html(output);
         }, 'json');
@@ -102,6 +106,7 @@ var Group = function (i) {
     			if (o[i].role == 'owner') {
     				GroupTemplate.addPost();
     				GroupTemplate.deleteGroup();
+    				$("#join_button").remove();
     			} else if (o[i].role == 'member') {
     				GroupTemplate.addPost();
     				GroupTemplate.leaveGroup();

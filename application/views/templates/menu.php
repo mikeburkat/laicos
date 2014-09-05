@@ -56,7 +56,6 @@
             <li><a href="<?php echo site_url();?>user/">Profile</a></li>
 			<li><a href="<?php echo site_url();?>user/settings/">Settings</a></li>
 			<li><a href="<?php echo site_url();?>user/logout/">logout</a></li>
-			<li><a href="<?php echo site_url();?>user/invite/">Invite</a></li>
 			<li><a href="<?php echo site_url();?>admin/">Admin</a></li>
 
           </ul>

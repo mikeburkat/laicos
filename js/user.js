@@ -6,6 +6,7 @@ var User = function () {
         console.log('User '+id+' Created, my id: ' + myID, ", my role: " + myRole + ", my status: " + myStatus + ", my privacy: " + myPrivacy);
         UserTemplate = new UserTemplate();
         UserEvent = new UserEvent();
+        check_privacy();
         info();
         friends();
         family();
@@ -30,6 +31,7 @@ var User = function () {
         	console.log('here');
         	for (var i = 0; i < o.length; i++ ) {
         		output += UserTemplate.user(o[i]);
+        		
         	}
         	
         	$("#user_info").html(output);
@@ -164,11 +166,56 @@ var User = function () {
     			} else if (o[i].status == 'collegues pending') {
     				UserTemplate.removeCollegueRequest();
     			}
-    			
     		}
-        	
         }, 'json');
     	
+    };
+    
+    
+    // ------------------------------------------------------------------------
+    
+    var check_privacy = function() {
+    	
+    	if (id == myID) {
+    		return;
+    	}
+    	
+    	var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/check_privacy/';
+    	var postData = {userID: id};
+    	
+        $.post(url, postData, function(p) {
+        	
+        	if (p[0].privacy == 'private') {
+        		
+        		console.log("private user, checking if we are friends.");
+        		
+        		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/check_relationship/';
+            	var postData = {myUserID: myID,
+            					pageUserID: id};
+            	
+                $.post(url, postData, function(o) {
+                	
+                	var friends = false;
+                	for (var i = 0; i < o.length; ++i) {
+                		if (o[i].status == 'friends' || o[i].status == 'family' || o[i].status == 'collegues') {
+                			friends = true;
+                			break;
+                		}
+                	}
+                	
+                	if ( !friends ) {
+                		console.log("not friends and private, removing info.");
+                		$("#user_friends_block").remove();
+                		$("#user_posts_block").remove();
+                		$("#user_info").remove();
+                    	
+                	}
+                	
+                }, 'json');
+        		
+        	}
+        	
+        }, 'json');
     };
     
     // ------------------------------------------------------------------------

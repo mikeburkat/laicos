@@ -1,9 +1,3 @@
-
-
-<?php $this->load->view('templates/header');?>
-
-
-
 	<div class="row" class="col-xs-10">
 					<div class="container">
 								
@@ -23,7 +17,7 @@
 											</div>
 											</form>
 											
-											<?php $this->load->view('templates/footer');?>
+										
 											
 											<center>
 											<?PHP

@@ -111,7 +111,8 @@ var UserTemplate = function() {
 		if (myID == obj.userID) {
 			editOptions();
 		} 
-		output += '<div id="userName">'+obj.firstName+" "+obj.lastName+'</div>';
+		var uN = '<div id="userName">'+obj.firstName+" "+obj.lastName+'</div>';
+		$("#user_name").html(uN);
 		
 		output += '<div id=user_id_' + obj.userID + '>';
 		

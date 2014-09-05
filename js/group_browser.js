@@ -58,10 +58,14 @@ var GroupBrowser = function () {
         $.post(url, postData, function(o) {
         	var output = '';
         	console.log('get all groups');
-        	for (var i = 0; i < o.length; i++ ) {
-        		output += GroupBrowserTemplate.group(o[i]);
-        	}
         	
+        	output += '<ul class="list-group">';
+        	for (var i = 0; i < o.length; i++ ) {
+        		output += '<li class="list-group-item">';
+        		output += GroupBrowserTemplate.group(o[i]);
+        		output += '</li>';
+        	}
+        	output += '</ul>';
         	$("#group_list").html(output);
         }, 'json');
     };

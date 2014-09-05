@@ -18,6 +18,7 @@ class Api extends CI_Controller {
 		$this->load->model ( 'hearts_model' );
 		$this->load->model ( 'newsfeed_model' );
 		$this->load->model ( 'role_change_requests_model' );
+		$this->load->model ( 'invite_model' );
 		
 	}
 	
@@ -376,7 +377,6 @@ class Api extends CI_Controller {
 				'role' => $role
 				] );
 	
-	
 		$rows = 0;
 		if (! empty ( $alreadyPresent )) {
 				
@@ -393,6 +393,34 @@ class Api extends CI_Controller {
 		}
 		$this->output->set_output ( json_encode ( $result ) );
 	}
+
+	// -------------------------------------------------------------------------------------------------
+	
+	public function accept_membership_request() {
+		$myID = $this->input->post ( 'myID' );
+		$clubID = $this->input->post ( 'groupID' );
+		
+		$alreadyPresent = $this->membership_model->get ( [
+				'userID' => $myID,
+				'clubID' => $clubID,
+				'role' => "member pending"
+		] );
+		
+		$result = 0;
+		if ( $alreadyPresent ) {
+		
+			$result = $this->membership_model->update ( 
+					[
+						'role' => "member"
+					],
+					[
+						'userID' => $myID,
+						'clubID' => $clubID,
+					] );
+		} 
+		
+		$this->output->set_output ( json_encode ( $result ) );
+	}
 	
 	// -------------------------------------------------------------------------------------------------
 	
@@ -401,7 +429,7 @@ class Api extends CI_Controller {
 		$myID = $this->input->post ( 'myID' );
 		$clubID = $this->input->post ( 'groupID' );
 		
-		$result = "";
+		$result = 0;
 		// gard against unsafe deletion
 		if ($myID == null || $clubID == null) {
 			$result = 'There is a parameter missing';
@@ -414,34 +442,20 @@ class Api extends CI_Controller {
 			'clubID' => $clubID,
 			'founderID' => $myID
 		]); 
-		if ($founder == null) {
+		if (! $founder) {
 			$result = "You are not the owner of this group, you can't delete it";
 			$this->output->set_output ( json_encode ( $result ) );
 			return;
 		}
 		
-		// delete the club wall.
+		$posts = $this->group_wall_model->get($clubID);
 		
-		// delete all posts.
+		foreach($posts as $row) {
+			$this->delete_post($row['postID']);
+		}
 		
-		// delete all content of posts.
+		$result = $this->group_model->delete($clubID);
 		
-		// delete all comments on posts.
-		
-		// delete all content of comments.
-		
-		
-		// delete group info.
-		
-		// delete all memberships.
-	
-		// delete all has_tags.
-		
-		// delete tag if the group was the only link.
-		
-		
-		
-		$result = "This is not implemented yet";
 		$this->output->set_output ( json_encode ( $result ) );
 	}
 	
@@ -755,6 +769,22 @@ class Api extends CI_Controller {
 	
 	// -------------------------------------------------------------------------------------------------
 	
+	public function check_privacy() {
+		$userID = $this->input->post('userID');
+	
+		$relationships = $this->user_model->get([
+			'userID' => $userID
+		],
+		null,
+		null,
+		['privacy']
+		);
+	
+		$this->output->set_output ( json_encode ( $relationships ) );
+	}
+	
+	// -------------------------------------------------------------------------------------------------
+	
 	public function get_pending_relationships() {
 		$userID = $this->input->post('userID');
 		
@@ -882,10 +912,10 @@ class Api extends CI_Controller {
 
 	// -------------------------------------------------------------------------------------------------
 	
-	public function delete_post() {
-		$userID = $this->input->post('userID');
-		$postID = $this->input->post('postID');
-		
+	public function delete_post($postID = null) {
+		if (! $postID) {
+			$postID = $this->input->post('postID');
+		}
 		
 		$parentIDs = $this->comment_model->get($postID);
 		
@@ -897,7 +927,6 @@ class Api extends CI_Controller {
 		}
 		
 		$result = $this->post_model->delete([
-			'userID' => $userID,
 			'postID' => $postID
 		]);
 		
@@ -1070,14 +1099,36 @@ class Api extends CI_Controller {
 	public function add_invite() {
 		$userID = $this->input->post('userID');
 		$email = $this->input->post('email');
-		
+				
 		// copied from thomas.
 		$base = site_url();
 		$secreturl = MD5($email);
-		mysql_query("INSERT INTO invites (invited, invitedurl) VALUES ('$email', '$secreturl')");
-		$answer = 'Generated URL for '.$email.'<br/> '.$base.'registration/index/'.$secreturl;
 		
-		$this->output->set_output ( json_encode ( $answer ) );
+		$present = $this->invite_model->get([
+				'invited' => $email
+		]);
+		
+		if ($present) {
+			$answer = 'Generated URL for '.$email.'<br/> '.$base.'registration/index/'.$present[0]['invitedurl'];
+			$this->output->set_output ( json_encode ( $answer ) );
+			return;
+		}
+		
+		$result = $this->invite_model->insert([
+			'invited' => $email,
+			'invitedurl' => $secreturl,
+			'timestamp' => date('Y-m-d H:m:s'),
+			'inviter' => $userID
+		]);
+		
+		if ($result) {
+			$answer = 'Generated URL for '.$email.'<br/> '.$base.'registration/index/'.$secreturl;
+			$this->output->set_output ( json_encode ( $answer ) );
+		} else {
+			$this->output->set_output ( json_encode ( "Error in database insertion." ) );
+		}
+		
+		
 	}
 	
 	// -------------------------------------------------------------------------------------------------
@@ -1093,7 +1144,7 @@ class Api extends CI_Controller {
 			'user' => 'membership.userID = user.userID'
 		], 
 		null, [
-			'club.clubID', 'name', 'firstName', 'lastName'
+			'club.clubID', 'name', 'firstName', 'lastName', 'user.userID'
 		]);
 		
 		

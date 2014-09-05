@@ -35,7 +35,7 @@
 		<h3>Info</h3>
 		<div id="join_button"></div>
 		<br>
-		<div id="delete_button"></div>
+		<div id="delete_group"></div>
 		<div id="group_info">
 			<span class="ajax-loader-gray"></span>
 		</div>

@@ -306,7 +306,7 @@ var Admin = function () {
         		var actions = row.insertCell();
         		gN.innerHTML = o[i].name;
         		
-        		var deny = '<button id="delete_group" type="button"  data-clubID="' +  o[i].clubID
+        		var deny = '<button id="leave_group" type="button"  data-clubID="' +  o[i].clubID
     				+ '" class="btn btn-danger">Leave</button>';
         		
         		actions.innerHTML = deny;
@@ -358,7 +358,7 @@ var Admin = function () {
         			+ relation + '" data-userID="' +  o[i].userID
         			+ '" class="btn btn-success">Accept</button>';
         		var deny = '<button id="relationship_request" type="button"  data-relation="' 
-        			+ o[i].status + '" data-userID="' +  o[i].userID
+        			+ relation + '" data-userID="' +  o[i].userID
     				+ '" class="btn btn-danger">Deny</button>';
         		
         		actions.innerHTML = accept + "  " + deny;
@@ -378,9 +378,13 @@ var Admin = function () {
     	
         $.post(url, postData, function(o) {
         	var output = '';
-        	console.log('list role requests');
+        	console.log('list ' + relationship);
         	
+        	if (o.length == 0) {
+        		$("." + relationship + "_list_table").append("Sorry but you have no " + relationship + ".");
+        	} else {
         	var senior = document.createElement("TABLE");
+        	
         	var head = senior.createTHead();
         	var hRow = head.insertRow();
         	
@@ -407,8 +411,9 @@ var Admin = function () {
         	}
         	senior.classList.add("table");
         	senior.classList.add("table-striped");
-        	$("." + relationship + "_list_table").append(senior);
         	
+        	$("." + relationship + "_list_table").append(senior);
+        	}
         	
         }, 'json');
     };

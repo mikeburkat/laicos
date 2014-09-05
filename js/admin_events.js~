@@ -1,4 +1,4 @@
-
+// remote project
 
 var AdminEvents = function () {
 	
@@ -18,6 +18,8 @@ var AdminEvents = function () {
         inactivate_pressed();
         activate_pressed();
         
+        remove_friend_pressed();
+		friend_request_pressed(); 
     };
     
     var base_url = window.location.origin;
@@ -49,7 +51,7 @@ var AdminEvents = function () {
     	$('#create_group_submit').submit(function(e) {
     		e.preventDefault();
     		
-    		var url = base_url + "/" + pathArray[1] + '/api/create_group/';
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/create_group/';
     		
         	var input = $('form').serializeArray();
         	
@@ -71,7 +73,7 @@ var AdminEvents = function () {
             		Message.error("This group name is already used, choose a different name.");
             	} else {
             		$("#create_group_submit")[0].reset();
-            		window.location.href = base_url + "/" + pathArray[1] + "/group/show/" + o;
+            		window.location.href = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + "/group/show/" + o;
             	}
             	
             }, 'json');
@@ -84,7 +86,7 @@ var AdminEvents = function () {
     	$("body").on('click', '#request_senior_button', function(e) {
     		e.preventDefault();
     		
-    		var url = base_url + "/" + pathArray[1] + '/api/add_request_role/';
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_request_role/';
     		
         	var postData = {userID : myID, role : 'senior'};
       
@@ -109,7 +111,7 @@ var AdminEvents = function () {
     	$("body").on('click', '#request_admin_button', function(e) {
     		e.preventDefault();
     		
-    		var url = base_url + "/" + pathArray[1] + '/api/add_request_role/';
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_request_role/';
     		
         	var postData = {userID : myID, role : 'administrator'};
       
@@ -146,7 +148,7 @@ var AdminEvents = function () {
     			answer = "denied"
     		}
     		
-    		var url = base_url + "/" + pathArray[1] + '/api/set_role/';
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/set_role/';
         	var postData = {
         			userID : userID, 
         			role : role,
@@ -174,7 +176,7 @@ var AdminEvents = function () {
     	$('#generate').submit(function(e) {
     		e.preventDefault();
     		
-    		var url = base_url + "/" + pathArray[1] + '/api/add_invite/';
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/add_invite/';
         	var input = $('form').serializeArray();
         	
         	var postData = {};
@@ -192,8 +194,8 @@ var AdminEvents = function () {
             	var output = '';
             	console.log('invite created? ' + o);
             	
-            	if (o == 0) {
-            		Message.error("This group name is already used, choose a different name.");
+            	if (o.split(" ")[0] == "Error") {
+            		Message.error(o);
             	} else {
             		$("#generated_output").html(o);
             	}
@@ -214,7 +216,7 @@ var AdminEvents = function () {
     		var status = 'suspended';
     		var userID = button.data('userid');
     		
-    		var url = base_url + "/" + pathArray[1] + '/api/set_status/';
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/set_status/';
         	var postData = {userID : userID, status : status};
       
             $.post(url, postData, function(o) {
@@ -245,7 +247,7 @@ var AdminEvents = function () {
     		var status = 'inactive';
     		var userID = button.data('userid');
     		
-    		var url = base_url + "/" + pathArray[1] + '/api/set_status/';
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/set_status/';
         	var postData = {userID : userID, status : status};
       
             $.post(url, postData, function(o) {
@@ -276,7 +278,7 @@ var AdminEvents = function () {
     		var status = 'active';
     		var userID = button.data('userid');
     		
-    		var url = base_url + "/" + pathArray[1] + '/api/set_status/';
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/set_status/';
         	var postData = {userID : userID, status : status};
       
             $.post(url, postData, function(o) {
@@ -296,10 +298,85 @@ var AdminEvents = function () {
     
     // ------------------------------------------------------------------------
     
-    
+    var remove_friend_pressed = function() {
+    	$("body").on('click', '#remove_relationship', function(e) {
+    		e.preventDefault();
+    		
+    		var button = $(this);
+    		var row = button.parent().parent();
+    		console.log(row);
+    		
+    		var userID = button.data('userid');
+    		var status = button.data('status');
+    		
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?" + '/api/remove_relationship/';
+        	var postData = {id : userID, myID : myID, status : status};
+      
+            $.post(url, postData, function(o) {
+            	var output = '';
+            	
+            	if (o.split(" ")[1] != "are") {
+            		Message.error(o);
+            	} else {
+            		Message.success(o);
+            		row.hide();
+            	}
+            	
+            }, 'json');
+        });
+    };
     
     // ------------------------------------------------------------------------
     
+    var friend_request_pressed = function() {
+    	$("body").on('click', '#relationship_request', function(e) {
+    		e.preventDefault();
+    		
+    		var button = $(this);
+    		var row = button.parent().parent();
+    		console.log(row);
+    		
+    		var userID = button.data('userid');
+    		var rstatus = button.data('relation');
+    		var accept = button.html();
+    		
+    		console.log("myID: " + myID + " f: " + userID + " s: " + rstatus);
+    		
+    		
+    		var url = base_url + "/" + pathArray[1] + "/" + pathArray[2]  +"/"+ pathArray[3]  + "?";
+    		if (accept == 'Accept') {
+    			url += '/api/accept_relationship_request/';
+    		} else {
+    			url += '/api/decline_relationship_request/';
+    		}
+    		var postData = {
+        			userID1: userID,
+        			userID2: myID,
+        			status: rstatus};
+        	
+        	 $.post(url, postData, function(o) {
+        		 if (accept == 'Accept') {
+	        		 if (o == 1) {
+	        			 Message.success("Request was accepted.");
+						 row.hide();
+	        		 } else {
+	        			 Message.error("Request accept failed.");	 
+	        		 }
+        		 } else {
+        			 if (o == 1) {
+	        			 Message.success("Request was declined.");
+						 row.hide();
+	        		 } else {
+	        			 Message.error("Request accept failed.");	 
+	        		 }
+        		 }
+             }, 'json');
+        });
+    	
+    }
+    
+    // ------------------------------------------------------------------------
+     
     
     
     // ------------------------------------------------------------------------
@@ -315,3 +392,18 @@ var AdminEvents = function () {
     this.__construct();
     
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

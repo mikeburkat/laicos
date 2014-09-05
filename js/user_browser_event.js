@@ -56,10 +56,15 @@ var UserBrowserEvent = function () {
     		var groups = [];
          	var output = '';
          	console.log('get users for filter');
+         	
+         	output += '<ul class="list-group">';
          	for (var i = 0; i < o.length; i++ ) {
-         		output += browserTemplate.user(o[i]);
+         		output += '<li class="list-group-item">';
+    			output += UserBrowserTemplate.user(o[i]);
+    			output += '</li>';
          	}
-         	console.log(output);
+         	output += '</ul>';
+         	
          	$("#user_list").html(output);
          	
     }

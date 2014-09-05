@@ -36,6 +36,9 @@ class User extends CI_Controller {
 	}
 
 	public function show($id = null) {
+		
+		
+		
 		$data['projectName'] = site_name;
 		$data['title'] = "User Profile";
 
@@ -45,6 +48,18 @@ class User extends CI_Controller {
 		$data['myPrivacy'] = $this->session->userdata('privacy');
 
 		$data['id'] = $id;
+		
+		if ($id) {
+			$this->load->model ( 'user_model' );
+			$exists = $this->user_model->get($id);
+			if (!$exists) {
+				$this->load->view('templates/header',$data);
+				$this->load->view('templates/menu',$data);
+				echo "<br><br><br><br><center>This user does not exits</center>";
+				$this->load->view('templates/footer',$data);
+				return;
+			}
+		}
 		
 		$data['stream_id'] = $this->User_model->get_user_setting($id,'lastStream');
 		$this->load->view('templates/header',$data);

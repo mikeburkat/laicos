@@ -9,7 +9,6 @@ var UserBrowser = function () {
         clear_filters();
         list_filters();
         list_users();
-        check_for_passed_tag();
     };
     
     var base_url = window.location.origin;
@@ -59,9 +58,18 @@ var UserBrowser = function () {
         $.post(url, postData, function(o) {
         	var output = '';
         	console.log('get all users');
+        	
+        	output += '<ul class="list-group">';
+        	
         	for (var i = 0; i < o.length; i++ ) {
-        		output += UserBrowserTemplate.user(o[i]);
+        		if (o[i].privacy == 'public' && o[i].status == 'active'){
+        			output += '<li class="list-group-item">';
+        			output += UserBrowserTemplate.user(o[i]);
+        			output += '</li>';
+        		}
         	}
+        	
+        	output += '</ul>';
         	
         	$("#user_list").html(output);
         }, 'json');

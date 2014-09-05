@@ -17,22 +17,26 @@
 	});
 </script>
 
-
-<h3>Selected Tags</h3>
-<a class="clear_tags" href="clear" >Clear</a>
-<div id="selected_tags"></div>
-<div class="hidden" id="selected_tag_ids"></div>
-<br>
-<h3>Tags</h3>
 <div class="container">
-	<div id="tag_list"><span class="ajax-loader-gray"></span></div>
+	<h3>Selected Tags</h3>
+	<a class="clear_tags" href="clear">Clear</a>
+	<div id="selected_tags"></div>
+	<div class="hidden" id="selected_tag_ids"></div>
+	<br>
+	<h3>Tags</h3>
+	<div class="container">
+		<div id="tag_list">
+			<span class="ajax-loader-gray"></span>
+		</div>
+	</div>
+	<br>
+	<h3>Groups</h3>
+	<div class="container">
+		<div id="group_list">
+			<span class="ajax-loader-gray"></span>
+		</div>
+	</div>
+	<br>
 </div>
-<br>
-<h3>Groups</h3>
-<div class="container">
-	<div id="group_list"><span class="ajax-loader-gray"></span></div>
-</div>
-<br>
-
 
 
